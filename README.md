@@ -1,1 +1,2 @@
-# IFRS-Info-2019IFRS-Info-2019
+# IFRS-Info-2019
+Code storing for 2019 I.T. classes
