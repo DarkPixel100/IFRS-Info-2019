@@ -36,7 +36,7 @@ if(op == '/')
 if (op == '^') {
     num_1 = Number(prompt("Primeiro número:"));
     num_2 = Number(prompt("Segundo número:"));
-    num_f = num_1 / num_2;
+    num_f = Math.pow(num_1,num_2);
 }
 if (op == 'R') {
     num_1 = Number(prompt("Número:"));
