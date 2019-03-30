@@ -6,7 +6,7 @@ var op;
 
 nome = prompt("Digite o seu nome");
 alert("Ola "+nome+"! Essa é uma calculadora digital");
-alert("Ela realiza adição(+), subtração(-), multiplicação(*), divisão(/), potenciação(^) e raíz quadrada(R)");
+alert("Ela realiza adição(+), subtração(-), multiplicação(*), divisão(/), potenciação(^) e raíz quadrada(R).");
 op = prompt("Operação:");
 
 if(op == '+')
@@ -42,4 +42,4 @@ if (op == 'R') {
     num_1 = Number(prompt("Número:"));
     num_f = Math.sqrt(num_1);
 }
-alert("Este é o resultado: " + num_f);
+alert("O resultado é " + num_f);
