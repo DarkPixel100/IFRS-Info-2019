@@ -6,25 +6,40 @@ var op;
 
 nome = prompt("Digite o seu nome");
 alert("Ola "+nome+"! Essa é uma calculadora digital");
-alert("Ela realiza as 4 operações básicas(adição, subtração, multiplicação e divisão)");
-num_1 = Number(prompt("Primeiro número: "));
-op = prompt("operação");
-num_2 = Number(prompt("Segundo número: "));
+alert("Ela realiza adição(+), subtração(-), multiplicação(*), divisão(/), potenciação(^) e raíz quadrada(R)");
+op = prompt("Operação:");
 
 if(op == '+')
 {
+    num_1 = Number(prompt("Primeiro número:"));
+    num_2 = Number(prompt("Segundo número:"));
     num_f = num_1 + num_2;
 }
 if(op == '-')
 {
+    num_1 = Number(prompt("Primeiro número:"));
+    num_2 = Number(prompt("Segundo número:"));
     num_f = num_1 - num_2;
 }
 if(op == '*')
 {
+    num_1 = Number(prompt("Primeiro número:"));
+    num_2 = Number(prompt("Segundo número:"));
     num_f = num_1 * num_2;
 }
 if(op == '/')
 {
+    num_1 = Number(prompt("Primeiro número:"));
+    num_2 = Number(prompt("Segundo número:"));
     num_f = num_1 / num_2;
+}
+if (op == '^') {
+    num_1 = Number(prompt("Primeiro número:"));
+    num_2 = Number(prompt("Segundo número:"));
+    num_f = num_1 / num_2;
+}
+if (op == 'R') {
+    num_1 = Number(prompt("Número:"));
+    num_f = Math.sqrt(num_1);
 }
 alert("Este é o resultado: " + num_f);
