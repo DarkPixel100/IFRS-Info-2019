@@ -26,7 +26,7 @@ d = Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2));
 alert("A distância entre os pontos é de "+d.toFixed(2)+" unidades.")
 
 //Exercício 4
-var nome, numC, valTV, salF;
+var nome, numC, valVT, salF;
 nome = prompt("Digite o seu nome:");
 numC = parseInt(prompt("Digite o número de carros vendidos:"));
 valVT = parseFloat(prompt("Digite o valor total das vendas:"));
