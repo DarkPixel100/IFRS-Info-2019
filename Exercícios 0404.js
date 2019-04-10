@@ -27,26 +27,17 @@ alert("A distância entre os pontos é de "+d.toFixed(2)+" unidades.")
 
 //Exercício 4
 var nome, numC, valVT, salF;
-nome = prompt("Digite o seu nome:");
-numC = parseInt(prompt("Digite o número de carros vendidos:"));
-valVT = parseFloat(prompt("Digite o valor total das vendas:"));
+nome = prompt("Digite o nome do empregado");
+numC = parseInt(prompt("Digite o número de carros vendidos pelo empregado:"));
+valVT = parseFloat(prompt("Digite o valor total das vendas feitas pelo empregado:"));
 salF = 500 + (numC*50) + (valVT*5/100);
 alert("O salário de "+nome+" será R$" +salF.toFixed(2));
 
 //Exercício 5
-var pAT, mL, pAN, pP;
-pA = parseInt(prompt("Digite a posição atual:"));
-mL = parseInt(prompt("Digite o número de posições:"));
-pAN = pAT - 1;
-pP = pAT + 1;
-if(pAT == mL)
-{
-pAN = pAT - 1;
-pP = 0;
-}
-else if (pAT == 0)
-{
-pAN = mL;
-pP = pAT + 1;
-}
-alert("A posição anterior é: "+pAN+ " e a próxima é "+pP+".");
+var t, p, pA, pP;
+t = parseInt(prompt("Digite o tamanho da lista circular:"));
+p = parseInt(prompt("Digite a posição atual na lista:"));
+pP = (p+1)%t;
+pA = (p-1+t)%t;
+//Se Math.pow(0,0) desse 0, daria certo: pA = p-1 + (t*(Math.abs(Math.pow(p,0)-1)));
+alert("A posição anterior na lista é "+pA+" e a próxima é "+pP+'.');
