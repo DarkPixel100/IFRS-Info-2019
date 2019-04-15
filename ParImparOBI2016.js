@@ -33,16 +33,25 @@ if(p == 1 && (d_1 + d_2)%2 != 0)
 	printf('%d',winner);
 	}
     */
-if((d_1+d_2)%2==0){
-	if(p==1){
-    	printf('1');
-    }else{
-    	printf('0');
-    }
-}else{
-	if(p==1){
-    	printf('0');
-    }else{
-    	printf('1');
-    }
+if((d_1+d_2)%2==0)
+{
+	if(p==1)
+	{
+    		printf('1');
+	}
+	else
+	{
+    		printf('0');
+	}
+}
+else
+{
+	if(p==1)
+	{
+    		printf('0');
+	}
+	else
+	{
+    		printf('1');
+	}
 }
