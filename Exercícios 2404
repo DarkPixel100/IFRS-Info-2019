@@ -1,0 +1,208 @@
+//Exercício 1:
+var n1, n2, res;
+n1 = parseInt(prompt("Digite o primeiro número:"));
+n2 = parseInt(prompt("Digite o segundo número:"));
+if(n1 > n2)
+{
+    res = n1 - n2;
+}
+if(n2 > n1)
+{
+    res = n2 - n1;
+}
+alert("A diferença do maior pelo menor é "+res);
+//Exercício 2:
+var num;
+num = parseInt(prompt("Digite um número(Faixa permitida: entre 1-9)"));
+if(9>=num>=1)
+{
+    alert(“O valor está na faixa permitida);
+}
+else
+{
+    alert("O valor está fora da faixa permitida");
+}
+//Exercício 3:
+var num;
+num = parseInt(prompt("Digite um número de 0 a 10:"));
+if(10>=num>=0)
+{
+if(num == 0)
+{
+alert("O número por extenso é Zero");
+}
+if(num == 1)
+{
+alert("O número por extenso é Um");
+}
+if(num == 2)
+{
+alert("O número por extenso é Dois");
+}
+if(num == 3)
+{
+alert("O número por extenso é Três");
+}
+if(num == 4)
+{
+alert("O número por extenso é Quatro");
+}
+if(num == 5)
+{
+alert("O número por extenso é Cinco");
+}
+if(num == 6)
+{
+alert("O número por extenso é Seis");
+}
+if(num == 7)
+{
+alert("O número por extenso é Sete");
+}
+if(num == 8)
+{
+alert("O número por extenso é Oito");
+}
+if(num == 9)
+{
+alert("O número por extenso é Nove");
+}
+if(num == 10)
+{
+alert("O número por extenso é Dez");
+}
+}
+else
+{
+    alert("O número não está na faixa de 0 a 10");
+}
+//Exercício 4:
+var age;
+age = parseInt(prompt("Digite a idade da pessoa:"));
+if(age<16)
+{
+alert("Não eleitor");
+}
+if(age<65 || age>=18)
+{
+alert("Eleitor obrigatório");
+}
+if(age<18 && age>=16 || age>=65)
+{
+alert("Eleitor facultativo");
+}
+//Exercício 5:
+var n1, n2, n3, n4, b1, b2, b3, b4;
+n1 = parseInt(prompt("Digite o primeiro número:"));
+n2 = parseInt(prompt("Digite o segundo número:"));
+n3 = parseInt(prompt("Digite o terceiro número:"));
+n4 = parseInt(prompt("Digite o quarto número:"));
+if(n1%2==0)
+{
+    b1 = true;
+}
+if(n1%3==0)
+{
+    b1 = true;
+}
+if(n2%2==0)
+{
+    b2 = true;
+}
+if(n2%3==0)
+{
+    b2 = true;
+}
+if(n3%2==0)
+{
+    b3 = true;
+}
+if(n3%3==0)
+{
+    b3  = true;
+}
+if(n4%2==0)
+{
+    b4 = true;
+}
+if(n4%3==0)
+{
+    b4 = true;
+}
+if(b1 && b2 && b3 && b4)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n1+", "+n2+", "+n3+" e "+n4+);
+}
+else if (b1 && b2 && b3 && b4 == false)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n1+", "+n2+" e "+n3+);
+}
+else if (b1 && b2 && b3 == false && b4 == false)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n1+" e "+n2+);
+}
+else if (b1 && b2 == false && b3 == false && b4 == false)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n1);
+}
+else if (b1 == false && b2 ==false && b3 == false && b4 == false)
+{
+    alert("Não existem números por 2 ou 3 dentre os citados");
+}
+else if (b1 == false && b2 ==false && b3 == false && b4)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n4+);
+}
+else if (b1 == false && b2 ==false && b3 && b4)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n3+" e "+n4+);
+}
+else if (b1 == false && b2 && b3 && b4)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n2+", "+n3+" e "+n4+);
+}
+else if (b1 && b2 && b3 == false && b4)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n1+", "+n2+" e "+n4+);
+}
+else if (b1 && b2 ==false && b3 && b4)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n1+", "+n3+" e "+n4+);
+}
+else if (b1 && b2 == false && b3 == false && b4)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n2+" e "+n3+);
+}
+else if (b1 == false && b2 && b3 && b4 == false)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n2+" e "+n3+);
+}
+else if (b1 == false && b2 ==false && b3 && b4 == false)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n3+);
+}
+else if (b1 == false && b2 && b3 == false && b4 == false)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n2+);
+}
+else if (b1 == false && b2 && b3 == false && b4)
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n2+" e "+n4+);
+}
+else
+{
+    alert("Os números divisíveis por 2 ou por 3 são: "+n1+" e "+n3+);
+}
+//Exercício 6:
+var num, nhalf, nsqrd;
+num = parseFloat(prompt("Digite um número:"));
+nhalf = num/2;
+nsqrd = Math.pow(num,2);
+if(num>0)
+{
+alert(nhalf);
+}
+if(num<0)
+{
+alert(nsqrd);
+}
