@@ -16,5 +16,4 @@ if(sumall != num)
 else
 {
    printf('N');
-
 }
