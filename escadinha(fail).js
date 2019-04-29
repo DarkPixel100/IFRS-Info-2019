@@ -1,29 +1,32 @@
 var nVal;
-var aux = 0;
 var ans = 0;
 var valVet = [];
+var differ = 0;
+
 scanf('%d','nVal');
 
 for(i=0;i<nVal;i++)
 {
 	scanf('%d','valVet[i]');
 }
-for(j=0;j<nVal-1;j++)
+
+for(j=0;j<nVal;j++)
 {
-    if(nVal === 1)
+    if(nVal == 1)
     {
     	ans++;
     	break;
     }
-    if(valVet[j+2]===undefined)
+    
+    if(valVet[j+1] == undefined)
     {
-   		break;
+       break;
     }
-   
-	var differ = valVet[j+1] - valVet[j];
-	if(differ != valVet[j+2] - valVet[j+1])
-	{
+	
+    if(valVet[j+2] - valVet[j+1] != valVet[j+1] - valVet[j])
+    {
+		differ = valVet[j+1] - valVet[j];
         ans++;
     }
 }
-printf('%d\n',ans+1);
+printf('%d\n',ans);
