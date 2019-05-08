@@ -14,7 +14,7 @@ alert("A diferença do maior pelo menor é "+res);
 //Exercício 2:
 var num;
 num = parseInt(prompt("Digite um número(Faixa permitida: entre 1-9)"));
-if(9>=num>=1)
+if(num<=9 && num>=1)
 {
     alert("O valor está na faixa permitida");
 }
@@ -319,3 +319,15 @@ pctg = 0;
 }
 nsal = satm + ((satm*pctg)/100);
 alert("A porcentagem de aumento do salário será de "+pctg+"% e o novo salário será de R$"+nsal+".");
+//Exercício 15:
+var sal, vprest;
+sal = parseFloat(prompt("Digite valor do salário bruto"));
+vprest = parseFloat(prompt());
+if(sal*0.30 >= vprest)
+{
+    alert("O emprestimo pode ser feito.")
+}
+else
+{
+    alert("O emprestimo não pode ser feito");
+}
