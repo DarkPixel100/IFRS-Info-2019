@@ -201,8 +201,17 @@ n2 = parseInt(prompt("Digite o segundo número:"));
 n3 = parseInt(prompt("Digite o terceiro número:"));
 n4 = parseInt(prompt("Digite o quarto número:"));
 n5 = parseInt(prompt("Digite o quinto número:"));
-maior = Math.max(n1, n2, n3, n4, n5);
-menor = Math.min(n1, n2, n3, n4, n5);
+/*maior = Math.max(n1, n2, n3, n4, n5);
+menor = Math.min(n1, n2, n3, n4, n5);*/
+if((n1>n2 && n1>n3 && n1>n4 && n1>n5) && (n2<n1 && n2<n3 && n2<n4 && n2<n5)){}
+if((n1>n2 && n1>n3 && n1>n4 && n1>n5) && (n3<n1 && n3<n2 && n3<n4 && n3<n5)){}
+if((n1>n2 && n1>n3 && n1>n4 && n1>n5) && (n4<n1 && n4<n3 && n4<n2 && n4<n5)){}
+if((n1>n2 && n1>n3 && n1>n4 && n1>n5) && (n5<n1 && n5<n3 && n5<n4 && n5<n2)){}
+
+if((n2>n1 && n2>n3 && n2>n4 && n2>n5) && (n1<n2 && n2<n3 && n2<n4 && n2<n5)){}
+if((n2>n1 && n2>n3 && n2>n4 && n2>n5) && (n3<n1 && n3<n2 && n3<n4 && n3<n5)){}
+if((n2>n1 && n2>n3 && n2>n4 && n2>n5) && (n4<n1 && n4<n3 && n4<n2 && n4<n5)){}
+if((n2>n1 && n2>n3 && n2>n4 && n2>n5) && (n5<n1 && n5<n3 && n5<n4 && n5<n2)){}
 alert("O maior número entre os digitados é "+maior+" e o menor é "+menor+".");
 //Exercício 8:
 var num;
