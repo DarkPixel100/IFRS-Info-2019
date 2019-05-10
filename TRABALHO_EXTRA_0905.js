@@ -20,12 +20,18 @@ mR = Math.floor((tRS - (hR*3600))/60);
 sR = tRS - (hR * 3600) - (mR * 60);
 alert("A metade do intervalo das duas horas é de "+hR+":"+mR+":"+sR+".");
 //Exercício 3:
-var data, dia, mes, ano;
+var data, dia1, dia2, mes1, mes2, ano1, ano2;
+
 data = parseInt(prompt("Digite a data no formato DDMMAA:"));
-dia = parseInt(data/10000);
-mes = parseInt(((data/10000) - (Math.floor(data/10000))) * 100);
-ano = parseInt(((data/100) - (Math.floor(data/100))) * 100);
-alert("A data no formato AA/MM/DD é "+ano+"/"+mes+"/"+dia+".");
+
+dia1 = parseInt(data/100000);
+
+dia2 = (parseInt(data/10000)) - (10*dia1);
+mes1 = (Math.floor(data/1000)) - ((Math.floor(data/10000)*10));//**
+mes2 = (Math.floor(data/100)) - ((Math.floor(data/1000))*10);
+ano1 = (Math.floor(data/10)) - ((Math.floor(data/100))*10);
+ano2 = data - ((Math.floor(data/10))*10);
+alert("A data no formato AAMMDD é "+ano1+""+ano2+""+mes1+""+mes2+""+dia1+""+dia2+".");
 //Exercício 4:
 var n, mult;
 n = parseInt(prompt("Digite um número:"));
@@ -41,8 +47,7 @@ x1 = ((-b)+Math.sqrt(delta))/(2*a);
 x2 = ((-b)-Math.sqrt(delta))/(2*a);
 alert("A primeira raíz é "+x1+" e a segunda é "+x2+".");
 //Exercício 6:
-var t, outros15, fPrice;
-t = parseInt(prompt("Digite o tempo de permanência(em minutos):"));
-outros15 = Math.ceil((t-30)/15);
-fPrice = 20 + (10*outros15);
-alert("O preço final será de R$"+fPrice.toFixed(2)+".");
+var t, price;
+t = parseInt(prompt("Digite o tempo(em minutos) gastos pela criança:"));
+price = (Math.round((t-30)/15) * 10) + 20;
+alert("O preço a se pagar é R$"+price.toFixed(2)+" (Caso o valor apresentado seja menor que R$20.00, o preço as se pagar é R$20,00).");
