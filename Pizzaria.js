@@ -13,14 +13,14 @@ if (cupom == "Sim" || cupom == "sIm" || cupom == "siM" || cupom == "sim" || cupo
     vTBebida = vBebida * qBebida;
     vTotal = vTPizza + vTBebida;    
     vTotal = vTotal - vTotal * 5 / 100;
-    alert("O valor total será: R$"+vTotal+".");
+    alert("O valor total será: R$"+vTotal.toFixed(2)+".");
 }
 if (cupom == "Não" || cupom == "nÃo" || cupom == "nãO" || cupom == "não" || cupom == "NÃO" || cupom == "Nao" || cupom == "nAo" || cupom == "naO" || cupom == "n" || cupom == "N" || cupom == "Nah" || cupom == "nAh" || cupom == "naH" || cupom == "nah" || cupom == "Na" || cupom == "nA" || cupom == "na" || cupom == "Nope" || cupom == "nOpe" || cupom == "noPe" || cupom == "nopE" || cupom == "nope")
 {
 vTPizza = vPizza * qPizza;
     vTBebida = vBebida * qBebida;
     vTotal = vTPizza + vTBebida;    
-    alert("O valor total será: R$"+vTotal+".");
+    alert("O valor total será: R$"+vTotal.toFixed(2)+".");
 }
 if (cupom != "Sim" & cupom != "sIm" & cupom != "siM" & cupom != "sim" & cupom != "SIM" & cupom != "s" & cupom != "S" & cupom != "y" & cupom != "Y" & cupom != "Yeah" & cupom != "yEah" & cupom != "yeAh" & cupom != "yeaH" & cupom != "yeah" & cupom != "Yea" & cupom != "yEa" & cupom != "yeA" & cupom != "Ye" & cupom != "yE" & cupom != "Yep" & cupom != "yEp" & cupom != "yeP" & cupom != "ye" & cupom != "Ya" & cupom != "yA" & cupom != "ya" & cupom != "Não" & cupom != "nÃo" & cupom != "nãO" & cupom != "não" & cupom != "NÃO" & cupom != "Nao" & cupom != "nAo" & cupom != "naO" & cupom != "n" & cupom != "N" & cupom != "Nah" & cupom != "nAh" & cupom != "naH" & cupom != "nah" & cupom != "Na" & cupom != "nA" & cupom != "na" & cupom != "Nope" & cupom != "nOpe" & cupom != "noPe" & cupom != "nopE" & cupom != "nope")
 {
