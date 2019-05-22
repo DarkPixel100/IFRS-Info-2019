@@ -65,3 +65,53 @@ else if(sob == '4')
     prc = prc + 3;
 }
 alert("Você consumiu "+cal+" calorias e a conta é de R$"+parseInt(prc)+","+(prc-parseInt(prc))*10+"0.");
+
+//Exercício 2:
+var p, c;
+p = parseInt(prompt("Digite:\n1-Pedra\n2-Papel\n3-Tesoura"));
+c = Math.ceil(Math.random()*3);
+if(p == 1)
+{
+    if(c == 1)
+    {
+        alert("Empate! O PC jogou pedra.");
+    }
+    if(c == 2)
+    {
+        alert("Você perdeu! O PC jogou papel.");
+    }
+    if(c == 3)
+    {
+        alert("Você ganhou! O PC jogou tesoura.");
+    }
+}
+if(p == 2)
+{
+    if(c == 1)
+    {
+        alert("Você ganhou! O PC jogou pedra.");
+    }
+    if(c == 2)
+    {
+        alert("Empate! O PC jogou papel.");
+    }
+    if(c == 3)
+    {
+        alert("Você perdeu! O PC jogou tesoura.");
+    }
+}
+if(p == 3)
+{
+    if(c == 1)
+    {
+        alert("Você perdeu! O PC jogou pedra.");
+    }
+    if(c == 2)
+    {
+        alert("Você ganhou! O PC jogou papel.");
+    }
+    if(c == 3)
+    {
+        alert("Empate! O PC jogou tesoura.");
+    }
+}
