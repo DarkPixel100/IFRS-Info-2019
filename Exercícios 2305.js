@@ -125,3 +125,24 @@ switch(m)
     default:
         alert("Esse número não representa nenhum mês.")
 }
+
+//Exercício 5:
+//Loja de drones, cada caixa tem a forma de um tijolo(paralelepípedo retângulo reto), drone entrega uma caixa de cada vez(coloca a caixa pela janela). O drone calcula a altura(h) e largura(l). Ele pode rotacionar e virar a caixa antes de passar, só é possível passar pela janela se uma das faces da caixa for paralela a uma face da janela. Ler as dimenções da janela(altura e largura) e da caixa(altura, largura e profundidade);
+var xB, yB, zB, xW, yW, f1, f2, f3, aW;
+xB = parseFloat(prompt("Digite a largura da caixa:"));
+yB = parseFloat(prompt("Digite a altura da caixa:"));
+zB = parseFloat(prompt("Digite a profundidade da caixa:"));
+xW = parseFloat(prompt("Digite a largura da janela:"));
+yW = parseFloat(prompt("Digite a altura da janela:"));
+aW = xW * yW;
+f1 = xB * yB;
+f2 = xB * zB;
+f3 = yB * xB;
+if(aW >= f1 || aW >= f2 || aW >= f3)
+{
+    alert("A caixa entra.")
+}
+else
+{
+    alert("A caixa não entra.");
+}
