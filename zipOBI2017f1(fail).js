@@ -31,13 +31,13 @@ else
 }
 if(lia > carol)
 {
-    printf("Lia");
+    printf("%s\n","Lia");
 }
 if(carol > lia)
 {
-    printf("Carolina");
+    printf("%s\n","Carolina");
 }
-else
+else if (lia == carol)
 {
-    printf("Empate");
+    printf("%s\n","Empate");
 }
