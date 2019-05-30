@@ -7,9 +7,9 @@ scanf("%d","c1");
 scanf("%d","c2");
 if(l1 == l2)
 {
-    lia = (l1+l2)*2;
+    lia = (l1+l2) * 2;
 }
-if((l1+1 == l2) || (l1-1 == l2))
+else if((l1+1 == l2) || (l1-1 == l2))
 {
     lia = (l1+l2)*3;
 }
@@ -21,7 +21,7 @@ if(c1 == c2)
 {
     carol = (c1+c2)*2;
 }
-if((c1+1 == c2) || (c1-1 == c2))
+else if((c1+1 == c2) || (c1-1 == c2))
 {
     carol = (c1+c2)*3;
 }
@@ -37,7 +37,7 @@ if(carol > lia)
 {
     printf("%s\n","Carolina");
 }
-else if (lia == carol)
+if (lia == carol)
 {
-    printf("%s\n","Empate");
+    printf("%s\n","empate");
 }
