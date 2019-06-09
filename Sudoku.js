@@ -52,7 +52,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -67,10 +67,6 @@ switch (aux)
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -96,11 +92,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -137,7 +128,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -151,11 +142,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -181,11 +167,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -220,7 +201,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -234,11 +215,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -264,11 +240,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -303,7 +274,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1  23 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -317,11 +288,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -347,11 +313,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -386,7 +347,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -400,11 +361,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -430,11 +386,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -469,7 +420,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -483,11 +434,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -513,11 +459,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -552,7 +493,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -566,11 +507,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -596,11 +532,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -635,7 +566,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -649,11 +580,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -679,11 +605,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -718,7 +639,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -732,11 +653,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -762,11 +678,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -801,7 +712,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -815,11 +726,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -845,11 +751,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -884,7 +785,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -898,11 +799,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -928,11 +824,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -967,7 +858,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -981,11 +872,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1011,11 +897,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1050,7 +931,7 @@ switch (aux)
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'B2' || coord == 'b2')
+       if(coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1064,11 +945,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1094,11 +970,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1172,7 +1043,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1181,11 +1052,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1196,11 +1062,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1226,11 +1087,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1257,7 +1113,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1266,11 +1122,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1281,11 +1132,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1311,11 +1157,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1340,7 +1181,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1349,11 +1190,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1364,11 +1200,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1394,11 +1225,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1423,7 +1249,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1432,11 +1258,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1  23 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1447,11 +1268,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1477,11 +1293,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1506,7 +1317,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1515,11 +1326,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1530,11 +1336,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1560,11 +1361,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1589,7 +1385,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1598,11 +1394,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1613,11 +1404,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1643,11 +1429,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1672,7 +1453,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1681,11 +1462,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1696,11 +1472,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1726,11 +1497,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1755,7 +1521,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1764,11 +1530,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1779,11 +1540,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1809,11 +1565,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1838,7 +1589,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1847,11 +1598,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1862,11 +1608,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1892,11 +1633,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -1921,7 +1657,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -1930,11 +1666,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -1945,11 +1676,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -1975,11 +1701,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -2004,7 +1725,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -2013,11 +1734,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -2028,11 +1744,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -2058,11 +1769,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -2087,7 +1793,7 @@ switch (aux)
             n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
        }
-       if(coord == 'A4' || coord == 'a4')
+       if(coord == 'A4' || coord == 'a4' || coord == 'B2' || coord == 'b2' || coord == 'C1' || coord == 'c1' || coord == 'D3' || coord == 'd3')
        {
             alert("Essa posição não está disponível, reinicie o jogo.");
             break;
@@ -2096,11 +1802,6 @@ switch (aux)
        {
             n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'B3' || coord == 'b3')
        {
@@ -2111,11 +1812,6 @@ switch (aux)
        {
             n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'C2' || coord == 'c2')
        {
@@ -2141,94 +1837,6 @@ switch (aux)
        {
             n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
             jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
-       }
-       if(coord == 'D4' || coord == 'd4')
-       {
-            n13 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       coord = prompt("Décima-terceira jogada. Digite a coordenada(A1, A2, ... B1, B2, ...) que representa a posição na qual o número que será digitado estará:\n"+jogo);
-       
-       
-       if(coord == 'A1' || coord == 'a1')
-       {
-            n1 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'A2' || coord == 'a2')
-       {
-            n2 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'A3' || coord == 'a3')
-       {
-            n3 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'A4' || coord == 'a4')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
-       }
-       if(coord == 'B1' || coord == 'b1')
-       {
-            n5 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B2' || coord == 'b2')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
-       }
-       if(coord == 'B3' || coord == 'b3')
-       {
-            n6 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'B4' || coord == 'b4')
-       {
-            n7 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C1' || coord == 'c1')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
-       }
-       if(coord == 'C2' || coord == 'c2')
-       {
-            n8 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C3' || coord == 'c3')
-       {
-            n9 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'C4' || coord == 'c4')
-       {
-            n10 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D1' || coord == 'd1')
-       {
-            n11 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D2' || coord == 'd2')
-       {
-            n12 = prompt("Digite o número a ser colocado nas coordenadas digitadas:\n"+jogo);
-            jogo = "  1 2 3 4\nA|"+n1+"|"+n2+"|"+n3+"|"+n4+"|\nB|"+n5+"|"+r1+"|"+n6+"|"+n7+"|\nC|"+r2+"|"+n8+"|"+n9+"|"+n10+"|\nD|"+n11+"|"+n12+"|"+r3+"|"+n13+"|";
-       }
-       if(coord == 'D3' || coord == 'd3')
-       {
-            alert("Essa posição não está disponível, reinicie o jogo.");
-            break;
        }
        if(coord == 'D4' || coord == 'd4')
        {
@@ -2266,5 +1874,4 @@ switch (aux)
             alert("Você falhou, para jogar novamente recomece o jogo.");
        }
     }
-}
 }
