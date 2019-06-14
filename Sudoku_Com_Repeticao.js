@@ -21,7 +21,13 @@ function Game()
         {
             if(Vjogo[0] == '_')
             {
-                Vjogo[0] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[0] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[0] != "1" && Vjogo[0] != "2" && Vjogo[0] != "3" && Vjogo[0] != "4")
+                {
+                    Vjogo[0] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -33,7 +39,13 @@ function Game()
         {
             if(Vjogo[1] == '_')
             {
-                Vjogo[1] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[1] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[1] != "1" && Vjogo[1] != "2" && Vjogo[1] != "3" && Vjogo[1] != "4")
+                {
+                    Vjogo[1] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -45,7 +57,13 @@ function Game()
         {
             if(Vjogo[2] == '_')
             {
-                Vjogo[2] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[2] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[2] != "1" && Vjogo[2] != "2" && Vjogo[2] != "3" && Vjogo[2] != "4")
+                {
+                    Vjogo[2] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -57,7 +75,13 @@ function Game()
         {
             if(Vjogo[3] == '_')
             {
-                Vjogo[3] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[3] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[3] != "1" && Vjogo[3] != "2" && Vjogo[3] != "3" && Vjogo[3] != "4")
+                {
+                    Vjogo[3] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -69,7 +93,13 @@ function Game()
         {
             if(Vjogo[4] == '_')
             {
-                Vjogo[4] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[4] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[4] != "1" && Vjogo[4] != "2" && Vjogo[4] != "3" && Vjogo[4] != "4")
+                {
+                    Vjogo[4] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -86,7 +116,13 @@ function Game()
         {
             if(Vjogo[5] == '_')
             {
-                Vjogo[5] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[5] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[5] != "1" && Vjogo[5] != "2" && Vjogo[5] != "3" && Vjogo[5] != "4")
+                {
+                    Vjogo[5] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -98,7 +134,13 @@ function Game()
         {
             if(Vjogo[6] == '_')
             {
-                Vjogo[6] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[6] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[6] != "1" && Vjogo[6] != "2" && Vjogo[6] != "3" && Vjogo[6] != "4")
+                {
+                    Vjogo[6] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -115,7 +157,13 @@ function Game()
         {
             if(Vjogo[7] == '_')
             {
-                Vjogo[7] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[7] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[7] != "1" && Vjogo[7] != "2" && Vjogo[7] != "3" && Vjogo[7] != "4")
+                {
+                    Vjogo[7] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -127,7 +175,13 @@ function Game()
         {
             if(Vjogo[8] == '_')
             {
-                Vjogo[8] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[8] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[8] != "1" && Vjogo[8] != "2" && Vjogo[8] != "3" && Vjogo[8] != "4")
+                {
+                    Vjogo[8] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -139,7 +193,13 @@ function Game()
         {
             if(Vjogo[9] == '_')
             {
-                Vjogo[9] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[9] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[9] != "1" && Vjogo[9] != "2" && Vjogo[9] != "3" && Vjogo[9] != "4")
+                {
+                    Vjogo[9] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -151,7 +211,13 @@ function Game()
         {
             if(Vjogo[10] == '_')
             {
-                Vjogo[10] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[10] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[10] != "1" && Vjogo[10] != "2" && Vjogo[10] != "3" && Vjogo[10] != "4")
+                {
+                    Vjogo[10] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -163,7 +229,13 @@ function Game()
         {
             if(Vjogo[11] == '_')
             {
-                Vjogo[11] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[11] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[11] != "1" && Vjogo[11] != "2" && Vjogo[11] != "3" && Vjogo[11] != "4")
+                {
+                    Vjogo[11] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
@@ -180,7 +252,13 @@ function Game()
         {
             if(Vjogo[12] == '_')
             {
-                Vjogo[12] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
+                Vjogo[12] = prompt("Digite o número a ser colocado:\n"+jogo);
+                if(Vjogo[12] != "1" && Vjogo[12] != "2" && Vjogo[12] != "3" && Vjogo[12] != "4")
+                {
+                    Vjogo[12] = '_';
+                    alert("Este caractere não é um número de 1 a 4, tente novamente.");
+                    Jogada();
+                }
             }
             else
             {
