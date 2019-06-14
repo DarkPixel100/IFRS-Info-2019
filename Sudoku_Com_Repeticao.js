@@ -1,6 +1,5 @@
-var coord, jogo, aux, jn;
+var coord, jogo, aux, jn, l1, l2, l3, l4, c1, c2, c3, c4, q1, q2, q3, q4;
 var Vjogo = [];
-var VjogoLCQ = [];
 alert("Esse é um sudoku, as regras são:\n1-Esse é um tabuleiro 4x4, ou seja, o números a serem inseridos devem ser entre 1 e 4;\n2-Não podemexistir números iguais em uma mesma linha, coluna ou quadrante(Quadrados 2x2 que dividem o tabuleiro em 4);\n3-Um número inserido não pode ser substituído.\nDivirta-se!");
 Game();
 function Game()
@@ -15,13 +14,13 @@ function Game()
     aux = 0;
     function Jogada()
     {
-        jogo = "  1 2 3 4\nA|"+Vjogo[0]+"|"+Vjogo[1]+"|"+Vjogo[2]+"|"+Vjogo[3]+"|\nB|"+Vjogo[4]+"|"+Vjogo[13]+"|"+Vjogo[5]+"|"+Vjogo[6]+"|\nC|"+Vjogo[14]+"|"+Vjogo[7]+"|"+Vjogo[8]+"|"+Vjogo[9]+"|\nD|"+Vjogo[10]+"|"+Vjogo[11]+"|"+Vjogo[15]+"|"+Vjogo[12]+"|";
+        jogo = "  1 2 3 4\nA|"+Vjogo[0]+"|"+Vjogo[1]+"|"+Vjogo[2]+"|"+Vjogo[3]+"|\nB|"+Vjogo[4]+"|"+Vjogo[5]+"|"+Vjogo[6]+"|"+Vjogo[13]+"|\nC|"+Vjogo[14]+"|"+Vjogo[7]+"|"+Vjogo[8]+"|"+Vjogo[9]+"|\nD|"+Vjogo[10]+"|"+Vjogo[11]+"|"+Vjogo[15]+"|"+Vjogo[12]+"|";
         coord = prompt("Digite a coordenada onde o número será colocado:\n"+jogo);
         if(coord == 'a1' || coord == 'A1')
         {
             if(Vjogo[0] == '_')
             {
-                Vjogo[0] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[0] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[0] != "1" && Vjogo[0] != "2" && Vjogo[0] != "3" && Vjogo[0] != "4")
                 {
                     Vjogo[0] = '_';
@@ -39,7 +38,7 @@ function Game()
         {
             if(Vjogo[1] == '_')
             {
-                Vjogo[1] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[1] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[1] != "1" && Vjogo[1] != "2" && Vjogo[1] != "3" && Vjogo[1] != "4")
                 {
                     Vjogo[1] = '_';
@@ -57,7 +56,7 @@ function Game()
         {
             if(Vjogo[2] == '_')
             {
-                Vjogo[2] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[2] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[2] != "1" && Vjogo[2] != "2" && Vjogo[2] != "3" && Vjogo[2] != "4")
                 {
                     Vjogo[2] = '_';
@@ -75,7 +74,7 @@ function Game()
         {
             if(Vjogo[3] == '_')
             {
-                Vjogo[3] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[3] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[3] != "1" && Vjogo[3] != "2" && Vjogo[3] != "3" && Vjogo[3] != "4")
                 {
                     Vjogo[3] = '_';
@@ -93,7 +92,7 @@ function Game()
         {
             if(Vjogo[4] == '_')
             {
-                Vjogo[4] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[4] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[4] != "1" && Vjogo[4] != "2" && Vjogo[4] != "3" && Vjogo[4] != "4")
                 {
                     Vjogo[4] = '_';
@@ -109,14 +108,9 @@ function Game()
         }
         if(coord == 'b2' || coord == 'B2')
         {
-                alert("Essa posição não está disponível, tente novamente.");
-                Jogada();
-        }
-        if(coord == 'b3' || coord == 'B3')
-        {
             if(Vjogo[5] == '_')
             {
-                Vjogo[5] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[5] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[5] != "1" && Vjogo[5] != "2" && Vjogo[5] != "3" && Vjogo[5] != "4")
                 {
                     Vjogo[5] = '_';
@@ -130,11 +124,11 @@ function Game()
                 Jogada();
             }   
         }
-        if(coord == 'b4' || coord == 'B4')
+        if(coord == 'b3' || coord == 'B3')
         {
             if(Vjogo[6] == '_')
             {
-                Vjogo[6] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[6] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[6] != "1" && Vjogo[6] != "2" && Vjogo[6] != "3" && Vjogo[6] != "4")
                 {
                     Vjogo[6] = '_';
@@ -148,6 +142,11 @@ function Game()
                 Jogada();
             }   
         }
+        if(coord == 'b4' || coord == 'B4')
+        {
+            alert("Essa posição não está disponível, tente novamente.");
+            Jogada();
+        }
         if(coord == 'c1' || coord == 'C1')
         {
                 alert("Essa posição não está disponível, tente novamente.");
@@ -157,7 +156,7 @@ function Game()
         {
             if(Vjogo[7] == '_')
             {
-                Vjogo[7] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[7] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[7] != "1" && Vjogo[7] != "2" && Vjogo[7] != "3" && Vjogo[7] != "4")
                 {
                     Vjogo[7] = '_';
@@ -175,7 +174,7 @@ function Game()
         {
             if(Vjogo[8] == '_')
             {
-                Vjogo[8] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[8] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[8] != "1" && Vjogo[8] != "2" && Vjogo[8] != "3" && Vjogo[8] != "4")
                 {
                     Vjogo[8] = '_';
@@ -193,7 +192,7 @@ function Game()
         {
             if(Vjogo[9] == '_')
             {
-                Vjogo[9] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[9] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[9] != "1" && Vjogo[9] != "2" && Vjogo[9] != "3" && Vjogo[9] != "4")
                 {
                     Vjogo[9] = '_';
@@ -211,7 +210,7 @@ function Game()
         {
             if(Vjogo[10] == '_')
             {
-                Vjogo[10] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[10] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[10] != "1" && Vjogo[10] != "2" && Vjogo[10] != "3" && Vjogo[10] != "4")
                 {
                     Vjogo[10] = '_';
@@ -229,7 +228,7 @@ function Game()
         {
             if(Vjogo[11] == '_')
             {
-                Vjogo[11] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[11] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[11] != "1" && Vjogo[11] != "2" && Vjogo[11] != "3" && Vjogo[11] != "4")
                 {
                     Vjogo[11] = '_';
@@ -252,7 +251,7 @@ function Game()
         {
             if(Vjogo[12] == '_')
             {
-                Vjogo[12] = prompt("Digite o número a ser colocado:\n"+jogo);
+                Vjogo[12] = Number(prompt("Digite o número a ser colocado:\n"+jogo));
                 if(Vjogo[12] != "1" && Vjogo[12] != "2" && Vjogo[12] != "3" && Vjogo[12] != "4")
                 {
                     Vjogo[12] = '_';
@@ -269,32 +268,31 @@ function Game()
         if (coord != 'a1' && coord != 'A1' && coord != 'a2' && coord != 'A2' && coord != 'a3' && coord != 'A3' && coord != 'a4' && coord != 'A4' && coord != 'b1' && coord != 'B1' && coord != 'b2' && coord != 'B2' && coord != 'b3' && coord != 'B3' && coord != 'b4' && coord != 'B4' && coord != 'c1' && coord != 'C1' && coord != 'c2' && coord != 'C2' && coord != 'c3' && coord != 'C3' && coord != 'c4' && coord != 'C4' && coord != 'd1' && coord != 'D1' && coord != 'd2' && coord != 'D2' && coord != 'd3' && coord != 'D3' && coord != 'd4' && coord != 'D4')
         {
             alert("Essa posição não existe.");
-        }
-    }
-    for(i=0;i<13;i++)
-    {
-        Jogada();
-    }
-    VjogoLCQ[0] = Vjogo[0] + Vjogo[1] + Vjogo[2] + Vjogo[3];
-    VjogoLCQ[1] = Vjogo[4] + Vjogo[13] + Vjogo[5] + Vjogo[6];
-    VjogoLCQ[2] = Vjogo[14] + Vjogo[7] + Vjogo[8] + Vjogo[9];
-    VjogoLCQ[3] = Vjogo[10] + Vjogo[11] + Vjogo[15] + Vjogo[12];
-    VjogoLCQ[4] = Vjogo[0] + Vjogo[4] + Vjogo[14] + Vjogo[10];
-    VjogoLCQ[5] = Vjogo[1] + Vjogo[13] + Vjogo[7] + Vjogo[11];
-    VjogoLCQ[6] = Vjogo[2] + Vjogo[5] + Vjogo[8] + Vjogo[15];
-    VjogoLCQ[7] = Vjogo[3] + Vjogo[6] + Vjogo[9] + Vjogo[12];
-    VjogoLCQ[8] = Vjogo[0] + Vjogo[1] + Vjogo[4] + Vjogo[13];
-    VjogoLCQ[9] = Vjogo[2] + Vjogo[3] + Vjogo[5] + Vjogo[6];
-    VjogoLCQ[10] = Vjogo[14] + Vjogo[7] + Vjogo[10] + Vjogo[11];
-    VjogoLCQ[11] = Vjogo[8] + Vjogo[9] + Vjogo[15] + Vjogo[12];
-    for(k=1;k<12;k++)
-    {
-        if(VjogoLCQ[0] == VjogoLCQ[k])
-        {
             aux++;
         }
+        jogo = "  1 2 3 4\nA|"+Vjogo[0]+"|"+Vjogo[1]+"|"+Vjogo[2]+"|"+Vjogo[3]+"|\nB|"+Vjogo[4]+"|"+Vjogo[5]+"|"+Vjogo[6]+"|"+Vjogo[13]+"|\nC|"+Vjogo[14]+"|"+Vjogo[7]+"|"+Vjogo[8]+"|"+Vjogo[9]+"|\nD|"+Vjogo[10]+"|"+Vjogo[11]+"|"+Vjogo[15]+"|"+Vjogo[12]+"|";
     }
-    if(aux == 11)
+    for(;;)
+    {
+        Jogada();
+        if(Vjogo[0] != '_' && Vjogo[1] != '_' && Vjogo[2] != '_' && Vjogo[3] != '_' && Vjogo[4] != '_' && Vjogo[5] != '_' && Vjogo[6] != '_' && Vjogo[7] != '_' && Vjogo[8] != '_' && Vjogo[9] != '_' && Vjogo[10] != '_' && Vjogo[11] != '_' && Vjogo[12] != '_' && Vjogo[13] != '_' && Vjogo[14] != '_' && Vjogo[15] != '_')
+        {
+            break;
+        }
+    }
+    l1 = Vjogo[0] + Vjogo[1] + Vjogo[2] + Vjogo[3];
+    l2 = Vjogo[4] + Vjogo[5] + Vjogo[6] + Vjogo[13];
+    l3 = Vjogo[14] + Vjogo[7] + Vjogo[8] + Vjogo[9];
+    l4 = Vjogo[10] + Vjogo[11] + Vjogo[15] + Vjogo[12];
+    c1 = Vjogo[0] + Vjogo[4] + Vjogo[14] + Vjogo[10];
+    c2 = Vjogo[1] + Vjogo[5] + Vjogo[7] + Vjogo[11];
+    c3 = Vjogo[2] + Vjogo[6] + Vjogo[8] + Vjogo[15];
+    c4 = Vjogo[3] + Vjogo[13] + Vjogo[9] + Vjogo[12];
+    q1 = Vjogo[0] + Vjogo[1] + Vjogo[4] + Vjogo[5];
+    q2 = Vjogo[2] + Vjogo[3] + Vjogo[6] + Vjogo[13];
+    q3 = Vjogo[14] + Vjogo[7] + Vjogo[10] + Vjogo[11];
+    q4 = Vjogo[8] + Vjogo[9] + Vjogo[15] + Vjogo[12];
+    if(l1 == l2 && l1 == l3 && l1 == l4 && l1 == c1 && l1 == c2 && l1 == c3 && l1 == c4 && l1 == q1 && l1 == q2 && l1 == q3 && l1 == q4)
     {
         jn = prompt("Parabéns! Você venceu! Deseja jogar novamente?(Digite \"Sim\" ou \"Não\")");
         if (jn == "Não" || jn == "não" || jn == "Nao" || jn == "nao")
