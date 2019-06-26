@@ -60,30 +60,26 @@ while(c >= 0)
 }
 //Exercício 4:
 var x, y;
-x = Number(prompt("Digite um X para a função F(x)=x-5x+6"));
+x = Number(prompt("Digite um X para a função F(x)=x²-5x+6"));
 while(x != 0)
 {
-    y = ((-4*x) + 6);
+    y = ((x**2)-(5*x) + 6);
     alert("F(x) = "+y+".");
     x = Number(prompt("Digite um X para a função F(x)=x-5x+6"));
 }
 //Exercício 5:
-var nome, quantT, quantPM, price;
+var nome, quant, price;
 var tprice= 0;
 var aux = 0;
-quantT = parseInt(prompt("Digite a quantidade total de mercadorias vendidas no mês:"));
-while(aux < quantT)
+var numM = parseInt(prompt("Digite o número de mercadorias vendidas:"));
+while(aux < numM)
 {
     nome = prompt("Digite o nome da mercadoria:");
-    quantPM = parseInt(prompt("Digite a quantidade dessa mercadoria vendida:"));
-    price = parseFloat(prompt("Digite o preço unitário dessa mercadoria:"));
-    tprice += (price*quantPM);
-    aux += quantPM;
-    if(aux > quantT)
-    {
-        alert("A quantidade de vendas digitada é incompatível com a quantidade máxima de vendas do mês.");
-        break;
-    }
+    quant = parseInt(prompt("Digite a quantide vendida dessa mercadoria:"));
+    price = parseFloat(prompt("Digite o preço dessa mercadoria:"))
+    tprice += (price*quant);
+    aux++;
+
 }
 alert("O faturamento total do Mês será de R$"+tprice.toFixed(2)+".");
 //Exercício 6:
