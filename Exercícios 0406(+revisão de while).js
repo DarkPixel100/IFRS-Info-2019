@@ -65,3 +65,29 @@ for(n = parseInt(prompt("Digite um número:")), s = "", c = 1;c <= n;c++)
     s += "*";
     console.log(s);
 }
+//Exercício 3:
+for(n = parseInt(prompt("Digite um número:")), s = "", c = 1;c <= n;c++)
+{
+    s += "*";
+    console.log(s);
+}
+//Exercício 4:
+var n = parseInt(prompt("Digite um número:"));
+var soma = 0;
+var s = "";
+for(c=n-1;c>=1;c--)
+{
+    if(n%c==0)
+    {
+        soma += c;
+        s = c+" " + s;
+    }
+}
+if(soma == n)
+{
+    alert("Esse número é perfeito, os seus divisores são: "+s+".");
+}
+else
+{
+    alert("Esse número não é perfeito, os seus divisores são: "+s+".");
+}
