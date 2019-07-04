@@ -270,13 +270,9 @@ function Game()
         }
         jogo = "  1 2 3 4\nA|"+Vjogo[0]+"|"+Vjogo[1]+"|"+Vjogo[2]+"|"+Vjogo[3]+"|\nB|"+Vjogo[4]+"|"+Vjogo[5]+"|"+Vjogo[6]+"|"+Vjogo[13]+"|\nC|"+Vjogo[14]+"|"+Vjogo[7]+"|"+Vjogo[8]+"|"+Vjogo[9]+"|\nD|"+Vjogo[10]+"|"+Vjogo[11]+"|"+Vjogo[15]+"|"+Vjogo[12]+"|";
     }
-    for(;;)
+    while(Vjogo[0] == '_' || Vjogo[1] == '_' || Vjogo[2] == '_' || Vjogo[3] == '_' || Vjogo[4] == '_' || Vjogo[5] == '_' || Vjogo[6] == '_' || Vjogo[7] == '_' || Vjogo[8] == '_' || Vjogo[9] == '_' || Vjogo[10] == '_' || Vjogo[11] == '_' || Vjogo[12] == '_' || Vjogo[13] == '_' || Vjogo[14] == '_' || Vjogo[15] == '_')
     {
         Jogada();
-        if(Vjogo[0] != '_' && Vjogo[1] != '_' && Vjogo[2] != '_' && Vjogo[3] != '_' && Vjogo[4] != '_' && Vjogo[5] != '_' && Vjogo[6] != '_' && Vjogo[7] != '_' && Vjogo[8] != '_' && Vjogo[9] != '_' && Vjogo[10] != '_' && Vjogo[11] != '_' && Vjogo[12] != '_' && Vjogo[13] != '_' && Vjogo[14] != '_' && Vjogo[15] != '_')
-        {
-            break;
-        }
     }
     l1 = Vjogo[0] + Vjogo[1] + Vjogo[2] + Vjogo[3];
     l2 = Vjogo[4] + Vjogo[5] + Vjogo[6] + Vjogo[13];
