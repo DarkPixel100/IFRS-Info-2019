@@ -1,25 +1,25 @@
-//Mostrar os n primeiros números primos(FAIL)
+//Mostrar os N primeiros números primos:
 var n = parseInt(prompt("Digite um número:"));
 var nprim = 0;
-var ndiv = 0;
 var s = "";
-    for(i=1;nprim<=n;i++)
+var ndiv;
+for(i=1;nprim<n;i++)
+{
+    ndiv = 0;    
+	for(j=1;j<=i;j++)
     {
-        for(pdiv=0;pdiv<=i;pdiv++)
+        if(i%j==0)
         {
-            if(i%pdiv==0)
-            {
-                ndiv++;
-            }
-        }
-        if(ndiv == 2)
-        {
-            nprim++;
-            s += i+" ";
+            ndiv++;
         }
     }
+    if(ndiv==2)
+    {
+        nprim++;
+        s += i+" ";
+    }
+}
 alert(s);
-
 //Os divisores de 12 são: 1, 2, 4, 6 e 12. O maior divisor de 12 que não excede a raís quadrada de 12 é 3. Podemos chamar o maior divisor de um inteiro N que não excede a raís quadrada de N, de pseudoraíz quadrada(PRQ) de N, por exemplo: PRQ de 3102 = 47. Faça um programa que que calcule o prq de um número sem usar Nath.sqrt
 var n = parseInt(prompt("Digite um número:"))
 var raiz;
