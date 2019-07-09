@@ -19,7 +19,7 @@ for(i=1;nprim<n;i++)
         s += i+" ";
     }
 }
-alert(s);
+alert("Os "+n+" primeiros números primos são: "+s+".");
 
 //Os divisores de 12 são: 1, 2, 4, 6 e 12. O maior divisor de 12 que não excede a raís quadrada de 12 é 3. Podemos chamar o maior divisor de um inteiro N que não excede a raís quadrada de N, de pseudoraíz quadrada(PRQ) de N, por exemplo: PRQ de 3102 = 47. Faça um programa que que calcule o prq de um número sem usar Nath.sqrt
 var n = parseInt(prompt("Digite um número:"))
