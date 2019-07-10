@@ -1,4 +1,4 @@
-//Mostrar os N primeiros números primos:
+//1. Mostrar os n primeiros números primos:
 var n = parseInt(prompt("Digite um número:"));
 var nprim = 0;
 var s = "";
@@ -21,7 +21,7 @@ for(i=1;nprim<n;i++)
 }
 alert("Os "+n+" primeiros números primos são: "+s+".");
 
-//Os divisores de 12 são: 1, 2, 4, 6 e 12. O maior divisor de 12 que não excede a raís quadrada de 12 é 3. Podemos chamar o maior divisor de um inteiro N que não excede a raís quadrada de N, de pseudoraíz quadrada(PRQ) de N, por exemplo: PRQ de 3102 = 47. Faça um programa que que calcule o prq de um número sem usar Nath.sqrt
+//2. Os divisores de 12 são: 1,2,3,4,6 e 12. O maior divisor de 12 que não excede a raiz quadrada de 12 é 3. Podemos chamar o maior divisor de um inteiro n que não excede a raiz quadrada de n de pseudo raiz quadrada (PRQ) de n. Por exemplo, PRQ(3102)=47. Faça um programa que calcule a pseudo raiz quadrada de um número inteiro, sem utilizar as funções matemáticas:
 var n = parseInt(prompt("Digite um número:"))
 var raiz;
 for(c=1;c*c<=n;c++)
@@ -33,7 +33,7 @@ for(c=1;c*c<=n;c++)
 }
 alert("A pseudo-raiz quadrada desse número é: "+raiz+".");
 
-//Calcular potenciação sem usar função matemática
+//3. Calcular a potenciação, sem usar funções matemática. Ler dois números e mostrar o resultado do primeiro elevado ao segundo:
 var base = parseInt(prompt("Digite a base da potência:"));
 var ind = parseInt(prompt("Digite o expoente:"));
 var res = 1;
