@@ -39,5 +39,5 @@ if(n!=0)
 }
 else
 {
-  alert("Tempo inválido");
+  alert("Número inválido");
 }
