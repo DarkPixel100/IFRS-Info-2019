@@ -35,7 +35,7 @@ for(i=1;i<n;i++)
 }
 if(n!=0)
 {
-  alert("A escada ficou ligada por "t" segundos.");
+  alert("A escada ficou ligada por "+t+" segundos.");
 }
 else
 {
