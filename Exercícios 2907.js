@@ -1,12 +1,22 @@
 //Álbum da copa:
 var esp = parseInt(prompt("Digite o número de espaços a serem preenchidos:"));
 var nfc = parseInt(prompt("Digite o número de figurinhas compradas:"));
-var c = 0;
-while(c<nfc)
+var figs = "";
+var base = "";
+var quant = 0;
+for(i=1;i<=nfc;i++)
 {
-  parseInt(prompt("Digite o número da figurinha:"));
+  figs += (parseInt(prompt("Digite o número da "+i+"ª figurinha:")))+" ";
 }
-alert("Faltam "(+esp-nfc)+" figurinhas.");
+for(j=0;j<figs.length;j++)
+{
+  if(base.indexOf(figs[j]) ==-1)
+     {
+        base += (figs[j])+" ";
+        quant++;
+     }
+}
+alert("Faltam "+(esp-quant)+" figurinhas.");
 
 //Garçom:
  n = parseInt(prompt("Digite o número de bandejas:"));
