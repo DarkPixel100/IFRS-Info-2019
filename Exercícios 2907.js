@@ -25,19 +25,19 @@ alert("Faltam "(+esp-nfc)+" figurinhas.");
 //Escada rolante:
 var n = parseInt(prompt("Digite o número de pessoas que utilizaram a escada:"));
 var t = 10;
-var p1 = parseInt(prompt("Digite o instante em que a 1ª pessoa entrou"));
-var p2;
-for(i=1;i<n;i++)
-{
-  p2 = parseInt(prompt("Digite o instante em que a "+(i+1)+"ª pessoa entrou"));
-  t += (p2-p1);
-  p1 = p2;
-}
 if(n!=0)
 {
+  var p1 = parseInt(prompt("Digite o instante em que a 1ª pessoa entrou"));
+  var p2;
+  for(i=1;i<n;i++)
+  {
+    p2 = parseInt(prompt("Digite o instante em que a "+(i+1)+"ª pessoa entrou"));
+    t += (p2-p1);
+    p1 = p2;
+  }
   alert("A escada ficou ligada por "+t+" segundos.");
 }
 else
 {
-  alert("Tempo inválido.")
+  alert("Tempo inválido");
 }
