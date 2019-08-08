@@ -55,3 +55,329 @@ else
 }
 
 //Exercício 6:
+var s = prompt("Digite uma palavra em inglês:").toLowerCase();
+if(s.endsWith("o") || s.endsWith("ch") || s.endsWith("sh") || s.endsWith("ss") || s.endsWith("x") || s.endsWith("z"))
+{
+  s += "es";
+}
+else if(s.endsWith("y"))
+{
+  s = s.slice(0,s.length-1) + "ies";
+}
+else
+{
+  s += "s";
+}
+alert(s);
+
+//Exercício 7 e 8 juntos:
+var si = prompt("Digite uma data no formato DD/MM/AAAA:");
+var sf;
+if (isNaN(Number(si.slice(0, 2))) == false && (si[2] = "/" || si[2] == "-" || si[2] == ".") && isNaN(Number(si.slice(3, 5))) == false && (si[5] == "/" || si[5] == "-" || si[5] == ".") && isNaN(Number(si.slice(6, 10))) == false)
+{
+    if (Number(si.slice(6, 10)) > 1584 && Number(si.slice(6, 10)) % 100 != 0 && (Number(si.slice(6, 10)) % 400 == 0 || Number(si.slice(6, 10)) % 4 == 0))
+    {
+        if (Number(si.slice(3, 5)) == 1)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de janeiro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 2)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 29)
+            {
+                sf = si.slice(0, 2) + " de fevereiro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 3)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de março de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 4)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 30)
+            {
+                sf = si.slice(0, 2) + " de abril de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 5)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de maio de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 5)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de maio de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 6)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 30)
+            {
+                sf = si.slice(0, 2) + " de junho de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 7)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de julho de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 8)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de agosto de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 9)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 30)
+            {
+                sf = si.slice(0, 2) + " de setembro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 10)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de outubro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 11)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 30)
+            {
+                sf = si.slice(0, 2) + " de novembro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 12)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de dezembro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else
+        {
+            alert("A data é inválida");
+        }
+    }
+    else {
+        if (Number(si.slice(3, 5)) == 1)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de janeiro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 2)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 28)
+            {
+                sf = si.slice(0, 2) + " de fevereiro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 3)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de março de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 4)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 30)
+            {
+                sf = si.slice(0, 2) + " de abril de " + si.slice(6, 10);
+            }
+            else {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 5)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de maio de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 5)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de maio de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 6)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 30)
+            {
+                sf = si.slice(0, 2) + " de junho de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 7)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de julho de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 8)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de agosto de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 9)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 30)
+            {
+                sf = si.slice(0, 2) + " de setembro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 10)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de outubro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 11)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 30)
+            {
+                sf = si.slice(0, 2) + " de novembro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else if (Number(si.slice(3, 5)) == 12)
+        {
+            if (Number(si.slice(0, 2)) >= 1 && Number(si.slice(3, 5)) <= 31)
+            {
+                sf = si.slice(0, 2) + " de dezembro de " + si.slice(6, 10);
+            }
+            else
+            {
+                alert("A data é inválida");
+            }
+        }
+        else
+        {
+            alert("A data é inválida");
+        }
+    }
+}
+else
+{
+    alert("A data é inválida");
+}
+alert("Data válida:\n" + sf);
+
+//Exercício 9:
