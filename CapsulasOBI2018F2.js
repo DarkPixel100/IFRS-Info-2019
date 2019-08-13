@@ -13,7 +13,7 @@ for(days=1;days<=Math.pow(10,8);days++)
 {
 	if(auxCoin >= nCoin)
     {
-       printf('%d',days-1);
+       printf('%d\n',days-1);
        break;
     }
     for(j=0;j<caps;j++)
