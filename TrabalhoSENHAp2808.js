@@ -6,7 +6,13 @@ var bdhd = "|casual|hostil|ocioso|julgar|acento|maroto|distante|origem|embuste|e
 st1 e st2: diferentes partes da string presente no prompt da palavra digitada; clet: número de letras corretas; plet: número de letras na posição correta; srl: string que conterá as letras já descobertas como presentes na palavra;
 dica: qual a classificação da palavra; ng: resposta do usuário ao perguntar se ele quer jogar novamente wt: resposta do usuário ao perguntar se ele quer uma dica; diff: dificuldade escolhida)*/
 var stword, tries, pchsorted, tyword, letters, st1, st2, clet, plet, srl, dica, ng, wt, diff;
-rexp = prompt("Olá, seja bem vindo! Esse jogo chama-se \"Senha\", deseja ter uma breve explicação de como jogar?(Digite \"sim\" ou \"não\")").toLowerCase();
+//Apresentando o jogo e perguntando se o usuário quer uma explicação do mesmo
+rexp = (prompt("Olá, seja bem vindo! Esse jogo chama-se \"Senha\", deseja ter uma breve explicação de como jogar?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
+while (rexp != "sim" && rexp != "s" && rexp != "não" && rexp !="nao" && rexp != "n")
+{
+    alert("Resposta inválida, digite novamente");
+    rexp = (prompt("Deseja ter uma breve explicação de como jogar?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
+}
 //Início do jogo(o do...while serve para que possam ocorrer múltiplas tentativas até que o usuário queira parar)
 do
 {
@@ -16,12 +22,12 @@ do
         alert("O jogo consiste em: tentar adivinhar a palavra que fora sorteada, baseando-se no número de letras da tentativa que fazem parte da palavra correta e/ou estão na posição certa na mesma; o jogo possui o número diferente de tentativas e letras por palavras dependendo da dificulade escolhida; independente da dificuldade, ao chegar a 3 tentativas restantes, existirá a possibilidade de receber uma dica, ela dirá se a palavra sorteada é um verbo, um substantivo, ou um adjetivo. Boa sorte\nExemplo:(palavra correta:pata)\nPalavra-Letras certas-Letras na posição certa\nbate-2-2\npato-4-3\npata-4-4(correto)");
     }
 //Pedindo a dificuldade em que o jogo será executado
-    diff = prompt("Escolha uma dificuldade:\n-Fácil(F/f ou 1) - Palavras de 4 letras, 10 tentativas\n-Média(M/m ou 2) - Palavras de 5 letras, 15 tentativas\n-Difícil(D/d ou 3) - Palavras de 6 ou mais letras, 15 tentativas").toLowerCase();
+    diff = (prompt("Escolha uma dificuldade:\n-Fácil(F/f ou 1) - Palavras de 4 letras, 10 tentativas\n-Média(M/m ou 2) - Palavras de 5 letras, 15 tentativas\n-Difícil(D/d ou 3) - Palavras de 6 ou mais letras, 15 tentativas").toLowerCase()).trim();
 //Garantindo que a dificuldade seja descrita de forma correta
     while (diff != 'f' && diff != '1' && diff != 'm' && diff != '2' && diff != 'd' && diff != '3')
     {
-        alert("O caractere digitado é inválido, digite novamente.");
-        diff = prompt("Escolha uma dificuldade:\n-Fácil(F/f ou 1) - Palavras de 4 letras, 10 tentativas\n-Média(M/m ou 2) - Palavras de 5 letras, 15 tentativas\n-Difícil(D/d ou 3) - Palavras de 6 ou mais letras, 15 tentativas").toLowerCase();
+        alert("Resposta inválida, digite novamente");
+        diff = (prompt("Escolha uma dificuldade:\n-Fácil(F/f ou 1) - Palavras de 4 letras, 10 tentativas\n-Média(M/m ou 2) - Palavras de 5 letras, 15 tentativas\n-Difícil(D/d ou 3) - Palavras de 6 ou mais letras, 15 tentativas").toLowerCase()).trim();
     }
 //Executando funções da dificuldade fácil(inserindo o número de tentativas como 10 e sorteando uma palavra do bdez(banco de dados da dificuldade fácil))
     if (diff == 'f' || diff == '1')
@@ -69,7 +75,7 @@ do
 //Pedindo a tentativa do usuário baseado no número de letras que devem ser digitadas
         do
         {
-            tyword = prompt(st1 + tries + st2);
+            tyword = (prompt(st1 + tries + st2)).trim();
             if(tyword.length != letters)
             {
                 alert("O número de caracteres da palavra digitada é inválido, tente novamente");
@@ -100,7 +106,12 @@ do
 //Perguntando se o usuário gostaria de uma dica ao chegar a 3 tentativas restantes
             if(tries == 3)
             {
-                wt = prompt("Gostaria de uma dica?(Digite \"sim\" ou \"não\")").toLowerCase();
+                wt = (prompt("Gostaria de uma dica?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
+                while(wt != "sim" && wt != "s" && wt != "não" && wt != "nao" && wt != "n")
+                {
+                    alert("Resposta inválida, digite novamente");
+                    wt = (prompt("Gostaria de uma dica?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
+                }
                 if(wt == "sim" || wt == "s")
                 {
                     alert("A palavra correta é um "+dica+".");
@@ -118,15 +129,25 @@ do
     if (tries >= 1)
     {
         alert("Parabéns, você venceu!!!\nA palavra era \""+stword+"\".");
-        ng = prompt("Deseja jogar novamente?(Digite \"sim\" ou \"não\")").toLowerCase();
+        ng = (prompt("Deseja jogar novamente?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
     }
     else
     {
-        ng = prompt("Você gastou todas as suas chances e perdeu; a palavra era \""+stword+"\". Deseja tentar novamente?(Digite \"sim\" ou \"não\")").toLowerCase();
+        ng = (prompt("Você gastou todas as suas chances e perdeu; a palavra era \""+stword+"\". Deseja tentar novamente?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
+        while (ng != "sim" && ng != "s" && ng != "não" && ng !="nao" && ng != "n")
+        {
+            alert("Resposta inválida, digite novamente");
+            ng = (prompt("A palavra era \""+stword+"\". Deseja tentar novamente?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
+        }
     }
 //Pergundando se o usuário gostaria de ler as regras/explicação do jogo novamente
     if(ng == "sim" || ng == "s")
     {
-        rexp = prompt("Deseja ler as regras/explicação novamente?(Digite \"sim\" ou \"não\")").toLowerCase();
+        rexp = (prompt("Deseja ler as regras/explicação novamente?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
+        while (rexp != "sim" && rexp != "s" && rexp != "não" && rexp !="nao" && rexp != "n")
+        {
+            alert("Resposta inválida, digite novamente");
+            rexp = (prompt("Deseja ler as regras/explicação novamente?(Digite \"sim\" ou \"não\")").toLowerCase()).trim();
+        }
     }
 }while (ng == "sim" || ng == "s")
