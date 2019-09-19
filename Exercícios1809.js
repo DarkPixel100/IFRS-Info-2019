@@ -35,8 +35,6 @@ alert(vet[0]+vet[vet.length-1]);
 
 //Exercício 5:
 var n = parseInt(prompt("Digite o número de números que será inserido:"));
-var sorted = 0;
-var nvet = [];
 var vet = [];
 var sen = 0;
 var aon = 0;
