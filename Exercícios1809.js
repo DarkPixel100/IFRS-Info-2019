@@ -34,7 +34,7 @@ for(i=0;i<num_n;i++)
 alert(vet[0]+vet[vet.length-1]);
 
 //Exercício 5:
-var n = parseInt(prompt("Digite o número de números que será inserido:"));
+var n = parseInt(prompt("Digite a quantidade de números que serão inseridos:"));
 var vet = [];
 var sen = 0;
 var aon = 0;
