@@ -35,6 +35,7 @@ alert(vet[0]+vet[vet.length-1]);
 
 //Exercício 5:
 var n = parseInt(prompt("Digite a quantidade de números que serão inseridos:"));
+var sorted = false;
 var vet = [];
 var sen = 0;
 var aon = 0;
@@ -43,9 +44,6 @@ var nba = 0;
 var tt = 0;
 var avr;
 var aux;
-var mx;
-var mn;
-var s;
 for(i=0;i<n;i++)
 {
     vet[i] = parseInt(prompt("Digite o "+(i+1)+"º número:"));
@@ -59,42 +57,30 @@ for(i=0;i<n;i++)
     }
     tt += vet[i];
 }
-mx = vet[0];
-mn = vet[0];
+avr = tt/n;
 for(j=0;j<n;j++)
 {
-    if(vet[j]>mx)
-    {
-    mx = vet[j];
-    }
-    if(vet[j]<mn)
-    {
-    mn = vet[j];
-    }
-}
-avr = tt/n;
-for(k=0;k<n;k++)
-{
-    if(vet[k]>avr)
+    if(vet[j]>avr)
     {
         naa++;
     }
-    else if(vet[k]<avr)
+    else if(vet[j]<avr)
     {
         nba++;
     }
 }
-s = "-Soma dos pares: "+sen+"\n-Quant. de ímpares: "+aon+"\n-Maior valor: "+mx+"\n-Menor valor: "+mn+"\n-Média: "+avr+"\n-Qtos acima da média: "+naa+"\n-Qtos abaixo da média: "+nba+"\n-Ordem crescente: ";
-for(l=0;l<n**2;l++)
+while(sorted==false)
 {
-    for(m=0;m<n;m++)
+    sorted = true;
+    for(k=0;k<n;k++)
     {
-        if(vet[m]>vet[m+1])
+        if(vet[k]>vet[k+1])
         {
-            aux = vet[m];
-            vet[m] = vet[m+1];
-            vet[m+1] = aux;
+            sorted = false;
+            aux = vet[k];
+            vet[k] = vet[k+1];
+            vet[k+1] = aux;
         }
     }
 }
-alert(s+vet);
+alert("-Soma dos pares: "+sen+"\n-Quant. de ímpares: "+aon+"\n-Maior valor: "+vet[vet.length-1]+"\n-Menor valor: "+vet[0]+"\n-Média: "+avr+"\n-Qtos acima da média: "+naa+"\n-Qtos abaixo da média: "+nba+"\n-Ordem crescente: "+vet);
