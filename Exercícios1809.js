@@ -35,7 +35,7 @@ alert(vet[0]+vet[vet.length-1]);
 
 //Exercício 5:
 var n = parseInt(prompt("Digite a quantidade de números que serão inseridos:"));
-var sorted = false;
+var sorted;
 var vet = [];
 var sen = 0;
 var aon = 0;
@@ -69,7 +69,7 @@ for(j=0;j<n;j++)
         nba++;
     }
 }
-while(sorted==false)
+do
 {
     sorted = true;
     for(k=0;k<n;k++)
@@ -82,5 +82,5 @@ while(sorted==false)
             vet[k+1] = aux;
         }
     }
-}
+}while(sorted==false)
 alert("-Soma dos pares: "+sen+"\n-Quant. de ímpares: "+aon+"\n-Maior valor: "+vet[vet.length-1]+"\n-Menor valor: "+vet[0]+"\n-Média: "+avr+"\n-Qtos acima da média: "+naa+"\n-Qtos abaixo da média: "+nba+"\n-Ordem crescente: "+vet);
