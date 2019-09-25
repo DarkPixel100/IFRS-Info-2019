@@ -177,27 +177,79 @@ var vete = [];
 for(i=0;i<30;i++)
 {
     ovet[i] = Number(prompt("Digite o "+(i+1)+"º número do primeiro conjunto:"));
-}
-for(j=0;j<15;j++)
-{
-    if(ovet[j]%2!=0)
+    if(ovet[i]%2!=0 && vete.length < 15)
     {    
-        veto[j] = ovet[j];
-    }    
+        vete[vete.length] = ovet[i];
+    }
+    else if (veto.length < 15)
+    {
+        veto[veto.length] = ovet[i];
+    }
 }
-if(veto.length >= 15)
+if(vete.length >= 15)
 {
     alert("O conjunto dos ímpares está cheio");
-}
-for(k=0;k<15;k++)
-{
-    if(ovet[k]%2==0)
-    {    
-        veto[k] = ovet[k];
-    }    
 }
 if(veto.length >= 15)
 {
     alert("O conjunto dos pares está cheio");
 }
 alert("Conjunto dos ímpares: "+veto+"\nConjunto dos pares: "+vete);
+
+//Exercício 11:
+var vet = [];
+var aux;
+for(i=0;i<20;i++)
+{
+    vet[i] = prompt("Digite algo para ser inserido na posição "+(i+1)+" do conjunto:");
+}
+alert("Conjunto digitado:\n"+vet);
+for(j=0;j<10;j++)
+{
+    aux = vet[j];
+    vet[j] = vet[19-j];
+    vet[19-j] = aux;
+}
+alert("Novo conjunto:\n"+vet);
+
+//Exercício 12:
+var gab = [];
+var tent = [];
+var sa = "";
+var nc = 0;
+for(i=0;i<6;i++)
+{
+    gab[i] = parseInt(prompt("Digite o "+(i+1)+"° número do gabarito"));
+}
+for(j=0;j<10;j++)
+{
+    tent[j] = parseInt(prompt("Digite o "+(j+1)+"° número da tentativa"));
+}
+for(k=0;k<6;k++)
+{
+    for(l=0;l<10;l++)
+    {
+        if(tent[l] == gab[k] && sa.indexOf(tent[l]) == -1)
+        {
+            nc++;
+            sa += tent[l]+" ";
+        }
+    }
+    sa = sa.trim();
+}
+if(nc < 4)
+{
+    alert("Número de acertos: "+nc);
+}
+else if(nc == 4)
+{
+    alert("Número de acertos: "+nc+" (quadra)");
+}
+else if(nc == 5)
+{
+    alert("Número de acertos: "+nc+" (quina)");
+}
+else if(nc == 6)
+{
+    alert("Número de acertos: "+nc+" (sena)");
+}
