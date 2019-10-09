@@ -39,3 +39,18 @@ for(i=0;i<s2.length;i++)
     }
 }
 alert(vet.join(", "));
+
+//Exercício 3:
+var op = prompt("Digite a operação que será realizada com os conjuntos(\"u\" para união, \"i\" para intersecção e \"d\" para fazer conjunto1\conjunto2)");
+var n1 = parseInt(prompt("Digite o número de elementos do conjunto 1:"));
+var n2 = parseInt(prompt("Digite o número de elementos do conjunto 2:"));
+var vet1 = [];
+var vet2 = [];
+for(i=0;i<n1;i++)
+{
+    vet1[i] = Number(prompt("Digite o "+(i+1)+"º elemento do conjunto 1"));
+}
+for(j=0;j<n2;j++)
+{
+    vet2[j] = Number(prompt("Digite o "+(j+1)+"º elemento do conjunto 2"));
+}
