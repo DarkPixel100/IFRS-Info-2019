@@ -83,10 +83,18 @@ do
             alert("Valor inválido, digite novamente");
         }
     }while(cho != 1 && cho != 2 && cho != 3 && cho != 4 && cho != 5)
-    if(cho == 1)
+    if(cho == 1 && (uvet.length != 0 && vet.length != 0))
     {
-        att = vet[0];
-        vet.shift();
+        if(uvet.length != 0)
+        {
+            att = uvet[0];
+            uvet.shift();
+        }
+        else
+        {
+            att = vet[0];
+            vet.shift();
+        }
     }
     else if(cho == 2)
     {
