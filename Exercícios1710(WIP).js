@@ -104,9 +104,72 @@ function retornarTracos(nome)
             s+= " ";
         }
     }
-    return nome + "\n" + s + "\n";
+    return s;
 }
-function categorizarAluno ()
+function categorizarAluno (idade)
 {
-    
+    if(idade <= 12)
+    {
+        return "Infantil";
+    }
+    else if(idade >= 13 && idade <= 18)
+    {
+        return "Juvenil";
+    }
+    else if(idade >= 19)
+    {
+        return "Adulto"
+    }
 }
+alert(n+"\n"+retornarTracos(n)+"\n"+categorizarAluno(a));
+
+//Exercício 6:
+var h = parseFloat(prompt("Digite a vida do personagem"));
+var d = parseFloat(prompt("Digite o dano sofrido pelo personagem"));
+function checkDeath(dano,saude)
+{
+    if(dano >= saude)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+checkDeath(d,h);
+
+//Exercício 7:
+var vet = [];
+function temChave(arr)
+{
+    for(i=0;i<5;i++)
+    {
+        if(arr[i] == "chave")
+        {
+            return true;
+        }
+    }
+    return false;
+}
+for(j=0;j<5;j++)
+{
+    vet[j] = prompt("Digite o nome do item no slot "+j);
+}
+temChave(vet);
+
+//Exercício 8:
+var p = parseInt(prompt("Insira a posição do inimigo"));
+function LimitaPosicao (pos)
+{
+    if(pos < 0)
+    {
+        return 0;
+    }
+    else if(pos > 100)
+    {
+        return 100;
+    }
+    return pos;
+}
+LimitaPosicao(p);
