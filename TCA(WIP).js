@@ -1,35 +1,72 @@
-function refreshScr (arr, str, vres, hres)
+function refreshScr (arr, vres, hres, x, y)
 {
-    str = "";
-    for(rc=0;rc<vres;rc++)
+    var str = "";
+    for(rv=0;rv<vres;rv++)
     {
-        str += mat[rc].join("") + "\n";
+        for(rh=0;rh<hres;rh++)
+        {
+            str += arr[x-(Math.floor(hres/2))][y-(Math.floor(vres/2))];
+        }
+        str += "\n";
     }
     return str;
 }
-var mat = [], hr = 10, vr = 6, tab = "", input, player = "⬤", floor = "█", pposx;
-for(i=0;i<vr;i++)
+function movv(arr, ipt, x, y)
 {
-    mat[i] = [];
-    for(j=0;j<hr;j++)
+    if(ipt == "w" && y-1 >= 0 && arr[y-1][x])
     {
-        mat[i][j] = " ";
+        y--;
+        arr[y][x] = player;
+        arr[y+1][x] = " ";
+    }
+    else if(ipt == "s" && y+1 <= arr.length-1 && arr[y+1][x])
+    {
+        y++;
+        arr[y][x] = player;
+        arr[y-1][x] = " ";
+    }
+    return y;
+}
+function movh(arr, ipt, x, y)
+{
+    if(ipt == "a" && x-1 >= 0 && arr[y][x-1])
+    {
+        x--;
+        arr[y][x] = player;
+        arr[y][x+1] = " ";
+    }
+    else if(ipt == "d" && x+1 <= arr[y].length-1 && arr[y][x+1])
+    {
+        x++;
+        arr[y][x] = player;
+        arr[y][x-1] = " ";
+    }
+    return x;
+}
+var map, hr, vr, input, player, posx, posy;
+hr = 9;
+vr = 9;
+map = [];
+posx = 15;
+posy = 6;
+player = "⬤";
+for(i=0;i<41;i++)
+{
+    map[i] = [];
+    map[i].length = 31;
+    if(i==0||i==10||i==20||i==30||i==40)
+    {
+        map[i].fill("█")
+    }
+    else
+    {
+        map[i].fill(" ");    
     }
 }
-mat[mat.length-1].fill(floor);
-mat[mat.length-2][4] = player;
-pposx = mat[mat.length-2].indexOf(player);
 do
 {
-    input = prompt(refreshScr(mat, tab, vr, hr)).trim().toLowerCase();
-    if(input = "a" && pposx-1 >= 0)
-    {
-        mat[mat.length-2][pposx] = " ";
-        mat[mat.length-2][pposx-1] = player;
-    }
-    else if(input = "d")
-    {
-        mat[mat.length-2][pposx] = " ";
-        mat[mat.length-2][pposx+1] = player;
-    }
+    posy = movv(map,input,posx,posy);
+    posx = movh(map,input,posx,posy);
+    input = prompt(refreshScr(map,vr,hr,posx,posy)).trim().toLowerCase();
 }while(input != "x")
+//map = [["█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█","█"],["█"," "," "," "," "," "," "," "," "," "," ","█"," "," "," "," "," "," "," "," "," "," ","█"," "," "," "," "," "," "," "," "," "," ","█"]];
