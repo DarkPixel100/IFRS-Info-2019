@@ -50,20 +50,45 @@ function movh(arr, ipt, x, y, aux)
     }
     return x;
 }
-function swrd (input)
+function swrd (ipt)
 {
-    
+    damage = 5;
+    if(ipt == "c")
+    {
+        return true;
+    }
+        return false;
 }
-var map, hr, vr, input, player, wall, posx, posy, ept, warr;
+function enmy (pdmg, arr, char, plr, tarr, n)
+{
+    var x = tarr[n][tarr[n].length-1];
+    var y = tarr[n][tarr[n].length-2];
+    if(tarr[n][0] > 0)
+    {
+        arr[y][x] = char;
+        if(warr[sw] == true && (arr[y+1][x] == plr || arr[y-1][x] == plr || arr[y][x+1] == plr || arr[y][x-1] == plr))
+        {
+            tarr[n][0] -= pdmg;
+        }
+    }
+    else
+    {
+        arr[y][x] = ept;
+    }
+}
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, warr, damage, earr, sw;
 hr = 9;
 vr = 9;
 map = [];
+earr = [[15,9,9]]
 posx = 15;
 posy = 6;
 player = "೦";//⬤😆
 wall = "█";
+enemy = "೧";
 ept = "   ";
-warr = ["none","swrd","bow"];
+warr = ["none",swrd(input),"bow"];
+sw = 0;
 for(i=0;i<41;i++)
 {
     map[i] = [];
@@ -89,6 +114,11 @@ do
 {
     posy = movv(map,input,posx,posy,ept);
     posx = movh(map,input,posx,posy,ept);
-    input = prompt(refreshScr(map,vr,hr,posx,posy)).trim().toLowerCase();
-    warr[parseInt(input[0])];
+    input = prompt(refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
+    if(parseInt(input[0]) >= 1 && parseInt(input[0]) <= 3)
+    {
+        sw = parseInt(input)-1;
+    }
+    enmy(damage,map,enemy,player,earr,0);
+    console.log(earr[0][0]+"\n"+sw+"\n"+warr[sw]);
 }while(input != "x")
