@@ -50,14 +50,20 @@ function movh(arr, ipt, x, y, aux)
     }
     return x;
 }
-var map, hr, vr, input, player, posx, posy, ept;
+function swrd (input)
+{
+    
+}
+var map, hr, vr, input, player, wall, posx, posy, ept, warr;
 hr = 9;
 vr = 9;
 map = [];
 posx = 15;
 posy = 6;
-player = "😆";//⬤
-ept = "   "
+player = "೦";//⬤😆
+wall = "█";
+ept = "   ";
+warr = ["none","swrd","bow"];
 for(i=0;i<41;i++)
 {
     map[i] = [];
@@ -69,14 +75,14 @@ for(i=0;i<41;i++)
     map[i].length = 31;
     if(i%10 == 0)
     {
-        map[i].fill("⬛")
+        map[i].fill(wall)
     }
     else
     {
         map[i].fill(ept);    
     }
-    map[i][0] = "⬛";//█
-    map[i][map[i].length-1] = "⬛";
+    map[i][0] = wall;//█
+    map[i][map[i].length-1] = wall;
     //*/
 }
 do
@@ -84,4 +90,5 @@ do
     posy = movv(map,input,posx,posy,ept);
     posx = movh(map,input,posx,posy,ept);
     input = prompt(refreshScr(map,vr,hr,posx,posy)).trim().toLowerCase();
+    warr[parseInt(input[0])];
 }while(input != "x")
