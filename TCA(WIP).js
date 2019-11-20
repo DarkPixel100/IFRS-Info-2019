@@ -5,7 +5,7 @@ function refreshScr (arr, vres, hres, x, y)
     {
         for(rh=0;rh<hres;rh++)
         {
-            if(arr[y-(Math.ceil(vres/2))+rv+1] != undefined)
+            if(arr[y-(Math.ceil(vres/2))+rv+1] != undefined && arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] != undefined)
             {
                 str += arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1];
             }
@@ -66,7 +66,7 @@ function enmy (pdmg, arr, char, plr, tarr, n)
     if(tarr[n][0] > 0)
     {
         arr[y][x] = char;
-        if(warr[sw] == true && (arr[y+1][x] == plr || arr[y-1][x] == plr || arr[y][x+1] == plr || arr[y][x-1] == plr))
+        if(waparr[sw] == true && (arr[y+1][x] == plr || arr[y-1][x] == plr || arr[y][x+1] == plr || arr[y][x-1] == plr))
         {
             tarr[n][0] -= pdmg;
         }
@@ -76,18 +76,17 @@ function enmy (pdmg, arr, char, plr, tarr, n)
         arr[y][x] = ept;
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, warr, damage, earr, sw;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, waparr, damage, enmyarr, sw;
 hr = 9;
 vr = 9;
 map = [];
-earr = [[15,9,9]]
+enmyarr = [[15,7,6]]
 posx = 15;
 posy = 6;
-player = "೦";//⬤😆
-wall = "█";
-enemy = "೧";
+player = "◯";//◯😆೦
+wall = "⬛";//█⬛
+enemy = "⬤";//⭕೧⬤〠
 ept = "   ";
-warr = ["none",swrd(input),"bow"];
 sw = 0;
 for(i=0;i<41;i++)
 {
@@ -106,7 +105,7 @@ for(i=0;i<41;i++)
     {
         map[i].fill(ept);    
     }
-    map[i][0] = wall;//█
+    map[i][0] = wall;
     map[i][map[i].length-1] = wall;
     //*/
 }
@@ -119,6 +118,7 @@ do
     {
         sw = parseInt(input)-1;
     }
-    enmy(damage,map,enemy,player,earr,0);
-    console.log(earr[0][0]+"\n"+sw+"\n"+warr[sw]);
+    waparr = ["none",swrd(input),"bow"];
+    enmy(damage,map,enemy,player,enmyarr,0);
+    console.log(enmyarr[0][0]+"\n"+sw+"\n"+waparr[sw]);
 }while(input != "x")
