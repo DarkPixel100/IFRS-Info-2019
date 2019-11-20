@@ -85,7 +85,7 @@ function enmy (pdmg, arr, char, plr, tarr, n)
     if(tarr[n][0] > 0)
     {
         arr[y][x] = char;
-        if(waparr[sw] == true && (arr[y+1][x] == plr || arr[y-1][x] == plr || arr[y][x+1] == plr || arr[y][x-1] == plr))
+        if(weparr[sw] == true && (arr[y+1][x] == plr || arr[y-1][x] == plr || arr[y][x+1] == plr || arr[y][x-1] == plr))
         {
             tarr[n][0] -= pdmg;
         }
@@ -94,8 +94,9 @@ function enmy (pdmg, arr, char, plr, tarr, n)
     {
         arr[y][x] = ept;
     }
+    return arr[y][x];
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, waparr, damage, enmyarr, sw;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, enmyarr, sw;
 hr = 15;
 vr = 7;
 map = [];
@@ -130,6 +131,7 @@ for(i=0;i<41;i++)
 }
 do
 {
+    refreshScr(map,vr,hr,posx,posy)
     posy = movv(map,input,posx,posy,ept);
     posx = movh(map,input,posx,posy,ept);
     input = prompt(refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
@@ -137,7 +139,7 @@ do
     {
         sw = parseInt(input)-1;
     }
-    waparr = ["none",swrd(input),"bow"];
+    weparr = ["none",swrd(input),"bow"];
     enmy(damage,map,enemy,player,enmyarr,0);
-    console.log(enmyarr[0][0]+"\n"+sw+"\n"+waparr[sw]);
+    console.log(enmyarr[0][0]+"\n"+sw+"\n"+weparr[sw]);
 }while(input != "x")
