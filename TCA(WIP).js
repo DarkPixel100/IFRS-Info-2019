@@ -1,3 +1,29 @@
+/*
+function refreshScr (arr, vres, hres, x, y)
+{
+    var str = "";
+    for(rv=0,axv=vres;rv<axv;rv++)
+    {
+        for(rh=0,axh=hres;rh<axh;rh++)
+        {
+            if(arr[y-(Math.ceil(vres/2))+rv+1] != undefined && arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] != undefined)
+            {
+                str += arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1];
+            }
+            if(arr[y-(Math.ceil(vres/2))+rv+1] == undefined)
+            {
+                axv++;
+            }
+            if(arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] == undefined)
+            {
+                axh++;
+            }
+        }
+        str += "\n";
+    }
+    return str;
+}
+*/
 function refreshScr (arr, vres, hres, x, y)
 {
     var str = "";
