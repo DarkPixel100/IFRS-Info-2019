@@ -1,43 +1,36 @@
-/*
-function refreshScr (arr, vres, hres, x, y)
-{
-    var str = "";
-    for(rv=0,axv=vres;rv<axv;rv++)
-    {
-        for(rh=0,axh=hres;rh<axh;rh++)
-        {
-            if(arr[y-(Math.ceil(vres/2))+rv+1] != undefined && arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] != undefined)
-            {
-                str += arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1];
-            }
-            if(arr[y-(Math.ceil(vres/2))+rv+1] == undefined)
-            {
-                axv++;
-            }
-            if(arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] == undefined)
-            {
-                axh++;
-            }
-        }
-        str += "\n";
-    }
-    return str;
-}
-*/
 function refreshScr (arr, vres, hres, x, y)
 {
     var str = "";
     for(rv=0;rv<vres;rv++)
     {
+        if(rv == 0)
+        {
+            str += "_".repeat(hres*2+Math.ceil(hres/5)) + "\n";
+        }
         for(rh=0;rh<hres;rh++)
         {
+            if(rh == 0)
+            {
+                str += "|";
+            }
+            if(arr[y-(Math.ceil(vres/2))+rv+1] == undefined)
+            {
+                arr[y-(Math.ceil(vres/2))+rv+1] = []
+                arr[y-(Math.ceil(vres/2))+rv+1].length = hres;
+                arr[y-(Math.ceil(vres/2))+rv+1].fill(ept);
+            }
+            if(arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] == undefined)
+            {
+                arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] = [ept];
+            }
             if(arr[y-(Math.ceil(vres/2))+rv+1] != undefined && arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] != undefined)
             {
                 str += arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1];
             }
         }
-        str += "\n";
+        str += "|\n";
     }
+    str += "‾".repeat(hres*2+Math.ceil(hres/5));
     return str;
 }
 function movv(arr, ipt, x, y, aux)
@@ -103,8 +96,8 @@ function enmy (pdmg, arr, char, plr, tarr, n)
     }
 }
 var map, hr, vr, input, player, wall, enemy, posx, posy, ept, waparr, damage, enmyarr, sw;
-hr = 9;
-vr = 9;
+hr = 15;
+vr = 7;
 map = [];
 enmyarr = [[15,7,6]]
 posx = 15;
