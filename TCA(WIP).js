@@ -78,29 +78,28 @@ function swrd (ipt)
     }
         return false;
 }
-function enmy (pdmg, arr, char, plr, tarr, n)
+function enmy (pdmg, arr, plr, tarr, n)
 {
     var x = tarr[n][tarr[n].length-1];
     var y = tarr[n][tarr[n].length-2];
     if(tarr[n][0] > 0)
     {
-        arr[y][x] = char;
         if(weparr[sw] == true && (arr[y+1][x] == plr || arr[y-1][x] == plr || arr[y][x+1] == plr || arr[y][x-1] == plr))
         {
             tarr[n][0] -= pdmg;
+            if(tarr[n][0] <= 0)
+            {
+                return [x,y,false];
+            }
         }
+        return [x,y,true];
     }
-    else
-    {
-        arr[y][x] = ept;
-    }
-    return arr[y][x];
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, enmyarr, sw;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, enmyarr, enmyaux, sw;
 hr = 15;
 vr = 7;
 map = [];
-enmyarr = [[15,7,6]]
+enmyarr = [[15,7,6],[10,8,9],[20,3,3],[15,5,5]]
 posx = 15;
 posy = 6;
 player = "◯";//◯😆೦
@@ -129,9 +128,9 @@ for(i=0;i<41;i++)
     map[i][map[i].length-1] = wall;
     //*/
 }
+map[posy][posx] = player;
 do
 {
-    refreshScr(map,vr,hr,posx,posy)
     posy = movv(map,input,posx,posy,ept);
     posx = movh(map,input,posx,posy,ept);
     input = prompt(refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
@@ -140,6 +139,20 @@ do
         sw = parseInt(input)-1;
     }
     weparr = ["none",swrd(input),"bow"];
-    enmy(damage,map,enemy,player,enmyarr,0);
-    console.log(enmyarr[0][0]+"\n"+sw+"\n"+weparr[sw]);
+    for(i=0;i<enmyarr.length;i++)
+    {
+        enmyaux = enmy(damage,map,player,enmyarr,i);
+        if(enmyaux != undefined)
+        {
+            if(enmyaux[2])
+            {
+                map[enmyaux[1]][enmyaux[0]] = enemy;
+            }
+            else
+            {
+                map[enmyaux[1]][enmyaux[0]] = ept;
+            }
+        }
+    }
+    console.log(enmyarr[0][0]+"\n"+sw+"\n"+weparr[sw]+"\n"+enmyaux);
 }while(input != "x")
