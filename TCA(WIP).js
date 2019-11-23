@@ -35,14 +35,14 @@ function refreshScr (arr, vres, hres, x, y)
 }
 function movv(arr, ipt, x, y, aux)
 {
-    if(ipt == "w" && arr[y-1][x] == ept)
+    if(ipt == "w" && (arr[y-1][x] == ept || arr[y-1][x] == dpath))
     {
         y--;
         arr[y+1][x] = aux;
         aux = arr[y][x];
         arr[y][x] = player;
     }
-    else if(ipt == "s" && arr[y+1][x] == ept)
+    else if(ipt == "s" && (arr[y+1][x] == ept || arr[y+1][x] == dpath))
     {
         y++;
         arr[y-1][x] = aux;
@@ -53,14 +53,14 @@ function movv(arr, ipt, x, y, aux)
 }
 function movh(arr, ipt, x, y, aux)
 {
-    if(ipt == "a" && arr[y][x-1] == ept)
+    if(ipt == "a" && (arr[y][x-1] == ept || arr[y][x-1] == dpath))
     {
         x--;
         arr[y][x+1] = aux;
         aux = arr[y][x];
         arr[y][x] = player;
     }
-    else if(ipt == "d" && arr[y][x+1] == ept)
+    else if(ipt == "d" && (arr[y][x+1] == ept || arr[y][x+1] == dpath))
     {
         x++;
         arr[y][x-1] = aux;
@@ -69,9 +69,41 @@ function movh(arr, ipt, x, y, aux)
     }
     return x;
 }
-function swrd (ipt)
+function swrd (ipt, x, y, arr, dot)
 {
     damage = 10;
+    if(arr[y-1][x] == ept || arr[y-1][x] == dot)
+    {
+        arr[y-1][x] = dot;
+    }
+    else
+    {
+        arr[y-1][x] = ept;
+    }
+    if(arr[y+1][x] == ept || arr[y+1][x] == dot)
+    {
+        arr[y+1][x] = dot;
+    }
+    else
+    {
+        arr[y+1][x] = ept;
+    }
+    if(arr[y][x-1] == ept || arr[y][x-1] == dot)
+    {
+        arr[y][x-1] = dot;
+    }
+    else
+    {
+        arr[y][x-1] = ept;
+    }
+    if(arr[y][x+1] == ept || arr[y][x+1] == dot)
+    {
+        arr[y][x+1] = dot;
+    }
+    else
+    {
+        arr[y][x+1] = ept;
+    }
     if(ipt == "c")
     {
         return true;
@@ -148,7 +180,7 @@ function lrenmy (pdmg, arr, plr, tarr, n)
         return [x,y,true];
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, crarr, lrarr, enmyaux, sw;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, crarr, lrarr, enmyaux, sw, dpath;
 hr = 15;
 vr = 7;
 map = [];
@@ -161,6 +193,7 @@ wall = "⬛";//█⬛
 enemy = "⬤";//⭕೧⬤〠
 ept = "   ";
 sw = 0;
+dpath = " · ";
 for(i=0;i<41;i++)
 {
     map[i] = [];
@@ -192,7 +225,7 @@ do
     {
         sw = parseInt(input)-1;
     }
-    weparr = ["none",swrd(input),"bow"];
+    weparr = ["none",swrd(input,posx,posy,map,dpath),"bow"];
     for(i=0;i<crarr.length;i++)
     {
         enmyaux = crenmy(damage,map,player,crarr,i);
