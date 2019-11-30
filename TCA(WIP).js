@@ -258,11 +258,11 @@ do
     posy = movv(map,input,posx,posy,ept);
     posx = movh(map,input,posx,posy,ept);
     input = prompt(refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
+    weparr = ["none",swrd(input,posx,posy,map,dpath),bow(input,posx,posy,map,dpath)];
     if(parseInt(input[0]) >= 1 && parseInt(input[0]) <= 3)
     {
         sw = parseInt(input)-1;
     }
-    weparr = ["none",swrd(input,posx,posy,map,dpath),bow(input,posx,posy,map,dpath)];
     enmyset(damage,map,player,crsprite,lrsprite);
     //console.log(crarr[0][0]+"\n"+sw+"\n"+weparr[sw]+"\n");
 }while(input != "x")
