@@ -69,22 +69,25 @@ function movh(arr, ipt, x, y, aux)
     }
     return x;
 }
-function swrd (ipt, x, y, arr)
+function epthand ()
+{
+    distance = 0;
+    return false;
+}
+function swrd (ipt)
 {
     damage = 10;
-    var distance = 1;
-    dmgdot(x,y,arr,dpath,distance);
+    distance = 1;
     if(ipt == "c")
     {
         return true;
     }
         return false;
 }
-function bow(ipt, x, y, arr)
+function bow (ipt)
 {
     damage = 5;
-    var distance = 3;
-    dmgdot(x,y,arr,dpath,distance);
+    distance = 3;
     if(ipt == "cw")
     {
         return ["up",true];
@@ -105,6 +108,7 @@ function bow(ipt, x, y, arr)
 }
 function dmgdot(x, y, arr, dot, dist)
 {
+    console.log(dist+"\n"+sw)
     for(i=0;i<arr.length;i++)
     {
         for(j=0;j<arr[i].length;j++)
@@ -257,9 +261,10 @@ do
 {
     posy = movv(map,input,posx,posy,ept);
     posx = movh(map,input,posx,posy,ept);
+    weparr = [epthand(),swrd(input,posx,posy,map),bow(input,posx,posy,map)];
+    dmgdot(posx,posy,map,dpath,distance);
     input = prompt(refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
-    weparr = ["none",swrd(input,posx,posy,map,dpath),bow(input,posx,posy,map,dpath)];
-    if(parseInt(input[0]) >= 1 && parseInt(input[0]) <= 3)
+    if(parseInt(input) >= 1 && parseInt(input) <= 3)
     {
         sw = parseInt(input)-1;
     }
