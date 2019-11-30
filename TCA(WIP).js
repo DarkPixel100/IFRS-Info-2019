@@ -69,50 +69,22 @@ function movh(arr, ipt, x, y, aux)
     }
     return x;
 }
-function swrd (ipt, x, y, arr, dot)
+function swrd (ipt, x, y, arr)
 {
     damage = 10;
-    if(arr[y-1][x] == ept || arr[y-1][x] == dot)
-    {
-        arr[y-1][x] = dot;
-    }
-    else
-    {
-        arr[y-1][x] = ept;
-    }
-    if(arr[y+1][x] == ept || arr[y+1][x] == dot)
-    {
-        arr[y+1][x] = dot;
-    }
-    else
-    {
-        arr[y+1][x] = ept;
-    }
-    if(arr[y][x-1] == ept || arr[y][x-1] == dot)
-    {
-        arr[y][x-1] = dot;
-    }
-    else
-    {
-        arr[y][x-1] = ept;
-    }
-    if(arr[y][x+1] == ept || arr[y][x+1] == dot)
-    {
-        arr[y][x+1] = dot;
-    }
-    else
-    {
-        arr[y][x+1] = ept;
-    }
+    var distance = 1;
+    dmgdot(x,y,arr,dpath,distance);
     if(ipt == "c")
     {
         return true;
     }
         return false;
 }
-function bow(ipt)
+function bow(ipt, x, y, arr)
 {
     damage = 5;
+    var distance = 3;
+    dmgdot(x,y,arr,dpath,distance);
     if(ipt == "cw")
     {
         return ["up",true];
@@ -130,6 +102,36 @@ function bow(ipt)
         return ["rg",true];
     }
     return ["none",false];
+}
+function dmgdot(x, y, arr, dot, dist)
+{
+    for(i=0;i<arr.length;i++)
+    {
+        for(j=0;j<arr[i].length;j++)
+        {
+            if(arr[i][j] == dot)
+            {
+                arr[i][j] = ept;
+            }
+        }
+    }
+    for(k=1;k<=dist && arr[y-k][x] == ept;k++)
+    {
+        arr[y-k][x] = dot;
+    }
+    for(l=1;l<=dist && arr[y+l][x] == ept;l++)
+    {
+        arr[y+l][x] = dot;
+    }
+    for(m=1;m<=dist && arr[y][x-m] == ept;m++)
+    {
+        arr[y][x-m] = dot;
+    }
+    for(n=1;n<=dist && arr[y][x+n] == ept;n++)
+    {
+        arr[y][x+n] = dot;
+    }
+
 }
 function crenmy (pdmg, arr, plr, tarr, n)
 {
@@ -156,19 +158,19 @@ function lrenmy (pdmg, arr, plr, tarr, n)
     {
         if(weparr[sw][1] == true)
         {
-            if(weparr[sw][0] == "up" && arr[y+3][x] == plr)
+            if(weparr[sw][0] == "up" && arr[y+1][x] == plr && arr[y+2][x] == plr && arr[y+3][x] == plr)
             {
                 tarr[n][0] -= pdmg;
             }
-            if(weparr[sw][0] == "dn" && arr[y-3][x] == plr)
+            if(weparr[sw][0] == "dn" && arr[y-1][x] == plr && arr[y-2][x] == plr && arr[y-3][x] == plr)
             {
                 tarr[n][0] -= pdmg;
             }
-            if(weparr[sw][0] == "lf" && arr[y][x+3] == plr)
+            if(weparr[sw][0] == "lf" && arr[y][x+1] == plr && arr[y][x+2] == plr && arr[y][x+3] == plr)
             {
                 tarr[n][0] -= pdmg;
             }
-            if(weparr[sw][0] == "rg" && arr[y][x-3] == plr)
+            if(weparr[sw][0] == "rg" && arr[y][x-1] == plr && arr[y][x-2] == plr && arr[y][x-3] == plr)
             {
                 tarr[n][0] -= pdmg;
             }
@@ -180,17 +182,52 @@ function lrenmy (pdmg, arr, plr, tarr, n)
         return [x,y,true];
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, crarr, lrarr, enmyaux, sw, dpath;
+function enmyset(dmg, arr, plr, cr, lr)
+{
+    var aux;
+    for(i=0;i<crarr.length;i++)
+    {
+        aux = crenmy(dmg,arr,plr,crarr,i);
+        if(aux != undefined)
+        {
+            if(aux[2])
+            {
+                map[aux[1]][aux[0]] = cr;
+            }
+            else
+            {
+                map[aux[1]][aux[0]] = ept;
+            }
+        }
+    }
+    for(i=0;i<lrarr.length;i++)
+    {
+        aux = lrenmy(dmg,arr,plr,lrarr,i);
+        if(aux != undefined)
+        {
+            if(aux[2])
+            {
+                map[aux[1]][aux[0]] = lr;
+            }
+            else
+            {
+                map[aux[1]][aux[0]] = ept;
+            }
+        }
+    }
+}
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, crarr, lrarr, sw, dpath, distance;
 hr = 15;
 vr = 7;
 map = [];
 crarr = [[15,7,6],[10,8,9],[20,3,3],[15,5,5]];
-lrarr = [];
+lrarr = [[15,7,7]];
 posx = 15;
 posy = 6;
 player = "◯";//◯😆೦
 wall = "⬛";//█⬛
-enemy = "⬤";//⭕೧⬤〠
+crsprite = "⬤";//⭕೧⬤〠
+lrsprite = "⭕";
 ept = "   ";
 sw = 0;
 dpath = " · ";
@@ -225,21 +262,7 @@ do
     {
         sw = parseInt(input)-1;
     }
-    weparr = ["none",swrd(input,posx,posy,map,dpath),"bow"];
-    for(i=0;i<crarr.length;i++)
-    {
-        enmyaux = crenmy(damage,map,player,crarr,i);
-        if(enmyaux != undefined)
-        {
-            if(enmyaux[2])
-            {
-                map[enmyaux[1]][enmyaux[0]] = enemy;
-            }
-            else
-            {
-                map[enmyaux[1]][enmyaux[0]] = ept;
-            }
-        }
-    }
-    console.log(crarr[0][0]+"\n"+sw+"\n"+weparr[sw]+"\n"+enmyaux);
+    weparr = ["none",swrd(input,posx,posy,map,dpath),bow(input,posx,posy,map,dpath)];
+    enmyset(damage,map,player,crsprite,lrsprite);
+    //console.log(crarr[0][0]+"\n"+sw+"\n"+weparr[sw]+"\n");
 }while(input != "x")
