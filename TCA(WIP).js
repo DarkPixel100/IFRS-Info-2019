@@ -33,7 +33,7 @@ function refreshScr (arr, vres, hres, x, y)
     str += "‾".repeat(hres*2+Math.ceil(hres/5));
     return str;
 }
-function movv(arr, ipt, x, y, aux)
+function movv (arr, ipt, x, y, aux)
 {
     if(ipt == "w" && (arr[y-1][x] == ept || arr[y-1][x] == dpath))
     {
@@ -51,7 +51,7 @@ function movv(arr, ipt, x, y, aux)
     }
     return y;
 }
-function movh(arr, ipt, x, y, aux)
+function movh (arr, ipt, x, y, aux)
 {
     if(ipt == "a" && (arr[y][x-1] == ept || arr[y][x-1] == dpath))
     {
@@ -87,7 +87,7 @@ function swrd (ipt)
 function bow (ipt)
 {
     damage = 5;
-    distance = 3;
+    distance = 2;
     if(ipt == "cw")
     {
         return ["up",true];
@@ -106,7 +106,7 @@ function bow (ipt)
     }
     return ["none",false];
 }
-function dmgdot(x, y, arr, dot, dist)
+function dmgdot (x, y, arr, dot, dist)
 {
     console.log(dist+"\n"+sw)
     for(i=0;i<arr.length;i++)
@@ -143,7 +143,7 @@ function crenmy (pdmg, arr, plr, tarr, n)
     var y = tarr[n][tarr[n].length-2];
     if(tarr[n][0] > 0)
     {
-        if(weparr[sw] == true && (arr[y+1][x] == plr || arr[y-1][x] == plr || arr[y][x+1] == plr || arr[y][x-1] == plr))
+        if(wepr == true && (arr[y+1][x] == plr || arr[y-1][x] == plr || arr[y][x+1] == plr || arr[y][x-1] == plr))
         {
             tarr[n][0] -= pdmg;
             if(tarr[n][0] <= 0)
@@ -160,21 +160,21 @@ function lrenmy (pdmg, arr, plr, tarr, n)
     var y = tarr[n][tarr[n].length-2];
     if(tarr[n][0] > 0)
     {
-        if(weparr[sw][1] == true)
+        if(wepr[1] == true)
         {
-            if(weparr[sw][0] == "up" && arr[y+1][x] == plr && arr[y+2][x] == plr && arr[y+3][x] == plr)
+            if(wepr[0] == "up" && (arr[y+1][x] == plr || (arr[y+1][x] == dpath && arr[y+2][x] == plr)))
             {
                 tarr[n][0] -= pdmg;
             }
-            if(weparr[sw][0] == "dn" && arr[y-1][x] == plr && arr[y-2][x] == plr && arr[y-3][x] == plr)
+            if(wepr[0] == "dn" && (arr[y-1][x] == plr || (arr[y-1][x] == dpath && arr[y-2][x] == plr)))
             {
                 tarr[n][0] -= pdmg;
             }
-            if(weparr[sw][0] == "lf" && arr[y][x+1] == plr && arr[y][x+2] == plr && arr[y][x+3] == plr)
+            if(wepr[0] == "lf" && (arr[y][x+1] == plr || (arr[y][x+1] == dpath && arr[y][x+2] == plr)))
             {
                 tarr[n][0] -= pdmg;
             }
-            if(weparr[sw][0] == "rg" && arr[y][x-1] == plr && arr[y][x-2] == plr && arr[y][x-3] == plr)
+            if(wepr[0] == "rg" && (arr[y][x-1] == plr || (arr[y][x-1] == dpath && arr[y][x-2] == plr)))
             {
                 tarr[n][0] -= pdmg;
             }
@@ -186,7 +186,23 @@ function lrenmy (pdmg, arr, plr, tarr, n)
         return [x,y,true];
     }
 }
-function enmyset(dmg, arr, plr, cr, lr)
+function chweapon (n)
+{
+    if(n == 1)
+    {
+        return epthand();
+    }
+    if(n == 2)
+    {
+        return swrd(input);
+    }
+    if(n == 3)
+    {
+        return bow(input);
+    }
+    return false;
+}
+function enmyset (dmg, arr, plr, cr, lr)
 {
     var aux;
     for(i=0;i<crarr.length;i++)
@@ -220,7 +236,7 @@ function enmyset(dmg, arr, plr, cr, lr)
         }
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, crarr, lrarr, sw, dpath, distance, grass;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepr, door;
 hr = 7;
 vr = 7;
 map = [];
@@ -236,7 +252,7 @@ ept = "   ";
 sw = 0;
 dpath = " · ";
 grass = "Δ ";
-var door = wall;
+door = "□";
 map = 
    [[wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall],
     [wall,grass,grass,grass,grass,grass,wall,grass,ept,ept,ept,grass,wall],
@@ -282,13 +298,13 @@ do
 {
     posy = movv(map,input,posx,posy,ept);
     posx = movh(map,input,posx,posy,ept);
-    weparr = [epthand(),swrd(input,posx,posy,map),bow(input,posx,posy,map)];
     dmgdot(posx,posy,map,dpath,distance);
     input = prompt(refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
     if(parseInt(input) >= 1 && parseInt(input) <= 3)
     {
-        sw = parseInt(input)-1;
+        sw = parseInt(input);
     }
+    wepr = chweapon(sw);
     enmyset(damage,map,player,crsprite,lrsprite);
-    //console.log(crarr[0][0]+"\n"+sw+"\n"+weparr[sw]+"\n");
+    //console.log(crarr[0][0]+"\n"+sw+"\n"+chweapon(sw)+"\n");
 }while(input != "x")
