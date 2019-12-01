@@ -221,11 +221,11 @@ function enmyset(dmg, arr, plr, cr, lr)
     }
 }
 var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, crarr, lrarr, sw, dpath, distance, grass;
-hr = 15;
+hr = 7;
 vr = 7;
 map = [];
-crarr = [[15,7,6],[10,8,9],[20,3,3],[15,5,5]];
-lrarr = [[15,7,7]];
+crarr = [[15,3,1],[15,9,11],[15,17,9]];
+lrarr = [[15,7,1],[15,10,7],[15,16,3]];
 posx = 9;
 posy = 4;
 player = "◯";//◯😆೦
@@ -235,9 +235,28 @@ lrsprite = "⭕";
 ept = "   ";
 sw = 0;
 dpath = " · ";
-grass = "🟩";
+grass = "Δ ";
 var door = wall;
-map = [[wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall],[wall,grass,grass,grass,grass,grass,wall,grass,ept,ept,ept,grass,wall],[wall,grass,ept,ept,ept,ept,wall,ept,ept,ept,grass,wall],[wall,ept,ept,ept,ept,ept,ept,ept,ept,ept,grass,wall],[wall,grass,ept,ept,ept,grass,wall,grass,ept,ept,ept,grass,wall],[wall,grass,grass,ept,grass,grass,wall,grass,grass,ept,grass,grass,wall],[wall,wall,wall,ept,wall,wall,wall,wall,wall,ept,wall,wall,wall],[wall,ept,ept,ept,ept,ept,wall,ept,ept,ept,ept,grass,wall],[wall,wall,ept,ept,ept,ept,wall,ept,ept,ept,ept,grass,wall],[door,ept,ept,ept,ept,ept,ept,ept,ept,ept,ept,wall],[wall,wall,ept,ept,ept,grass,wall,ept,ept,ept,ept,grass,wall],[wall,wall,grass,ept,grass,grass,wall,wall,wall,ept,wall,wall,wall,wall],[wall,wall,wall,ept,wall,wall,wall,wall,wall,ept,wall,wall,wall],[wall,grass,ept,ept,grass,grass,wall,grass,grass,ept,ept,wall,wall],[wall,grass,ept,ept,ept,grass,wall,grass,ept,ept,ept,wall,wall],[wall,grass,ept,ept,ept,ept,ept,ept,ept,ept,ept,door],[wall,grass,ept,ept,ept,ept,wall,ept,ept,ept,ept,wall,wall],[wall,grass,grass,grass,grass,grass,wall,grass,grass,ept,grass,grass,wall],[wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall]]
+map = 
+   [[wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall],
+    [wall,grass,grass,grass,grass,grass,wall,grass,ept,ept,ept,grass,wall],
+    [wall,grass,ept,ept,ept,ept,wall,grass,ept,ept,ept,grass,wall],
+    [wall,ept,ept,ept,ept,ept,ept,ept,ept,ept,ept,grass,wall],
+    [wall,grass,ept,ept,ept,grass,wall,grass,ept,ept,ept,grass,wall],
+    [wall,grass,grass,ept,grass,grass,wall,grass,grass,ept,grass,grass,wall],
+    [wall,wall,wall,ept,wall,wall,wall,wall,wall,ept,wall,wall,wall],
+    [wall,ept,ept,ept,ept,ept,wall,ept,ept,ept,ept,grass,wall],
+    [wall,wall,ept,ept,ept,ept,wall,ept,ept,ept,ept,grass,wall],
+    [door,ept,ept,ept,ept,ept,ept,ept,ept,ept,ept,ept,wall],
+    [wall,wall,ept,ept,ept,grass,wall,ept,ept,ept,ept,grass,wall],
+    [wall,wall,grass,ept,grass,grass,wall,wall,wall,ept,wall,wall,wall],
+    [wall,wall,wall,ept,wall,wall,wall,wall,wall,ept,wall,wall,wall],
+    [wall,grass,ept,ept,grass,grass,wall,grass,grass,ept,ept,wall,wall],
+    [wall,grass,ept,ept,ept,grass,wall,grass,ept,ept,ept,wall,wall],
+    [wall,grass,ept,ept,ept,ept,ept,ept,ept,ept,ept,ept,door],
+    [wall,grass,ept,ept,ept,ept,wall,ept,ept,ept,ept,wall,wall],
+    [wall,grass,grass,grass,grass,grass,wall,grass,grass,ept,grass,grass,wall],
+    [wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall]];
 /*for(i=0;i<41;i++)
 {
     map[i] = [];
@@ -245,7 +264,6 @@ map = [[wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall],[wall,
     {
         map[i][j] = i*j;
     }
-
     map[i].length = 31;
     if(i%10 == 0)
     {
