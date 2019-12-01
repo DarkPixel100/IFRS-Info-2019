@@ -220,14 +220,14 @@ function enmyset(dmg, arr, plr, cr, lr)
         }
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, crarr, lrarr, sw, dpath, distance;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, weparr, damage, crarr, lrarr, sw, dpath, distance, grass;
 hr = 15;
 vr = 7;
 map = [];
 crarr = [[15,7,6],[10,8,9],[20,3,3],[15,5,5]];
 lrarr = [[15,7,7]];
-posx = 15;
-posy = 6;
+posx = 9;
+posy = 4;
 player = "◯";//◯😆೦
 wall = "⬛";//█⬛
 crsprite = "⬤";//⭕೧⬤〠
@@ -235,14 +235,17 @@ lrsprite = "⭕";
 ept = "   ";
 sw = 0;
 dpath = " · ";
-for(i=0;i<41;i++)
+grass = "🟩";
+var door = wall;
+map = [[wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall],[wall,grass,grass,grass,grass,grass,wall,grass,ept,ept,ept,grass,wall],[wall,grass,ept,ept,ept,ept,wall,ept,ept,ept,grass,wall],[wall,ept,ept,ept,ept,ept,ept,ept,ept,ept,grass,wall],[wall,grass,ept,ept,ept,grass,wall,grass,ept,ept,ept,grass,wall],[wall,grass,grass,ept,grass,grass,wall,grass,grass,ept,grass,grass,wall],[wall,wall,wall,ept,wall,wall,wall,wall,wall,ept,wall,wall,wall],[wall,ept,ept,ept,ept,ept,wall,ept,ept,ept,ept,grass,wall],[wall,wall,ept,ept,ept,ept,wall,ept,ept,ept,ept,grass,wall],[door,ept,ept,ept,ept,ept,ept,ept,ept,ept,ept,wall],[wall,wall,ept,ept,ept,grass,wall,ept,ept,ept,ept,grass,wall],[wall,wall,grass,ept,grass,grass,wall,wall,wall,ept,wall,wall,wall,wall],[wall,wall,wall,ept,wall,wall,wall,wall,wall,ept,wall,wall,wall],[wall,grass,ept,ept,grass,grass,wall,grass,grass,ept,ept,wall,wall],[wall,grass,ept,ept,ept,grass,wall,grass,ept,ept,ept,wall,wall],[wall,grass,ept,ept,ept,ept,ept,ept,ept,ept,ept,door],[wall,grass,ept,ept,ept,ept,wall,ept,ept,ept,ept,wall,wall],[wall,grass,grass,grass,grass,grass,wall,grass,grass,ept,grass,grass,wall],[wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall]]
+/*for(i=0;i<41;i++)
 {
     map[i] = [];
     /*for(j=0;j<31;j++)
     {
         map[i][j] = i*j;
-    }*/
-    //*
+    }
+
     map[i].length = 31;
     if(i%10 == 0)
     {
@@ -254,8 +257,8 @@ for(i=0;i<41;i++)
     }
     map[i][0] = wall;
     map[i][map[i].length-1] = wall;
-    //*/
-}
+    
+}*/
 map[posy][posx] = player;
 do
 {
