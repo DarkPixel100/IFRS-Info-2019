@@ -33,39 +33,115 @@ function refreshScr (arr, vres, hres, x, y)
     str += "‾".repeat(hres*2+Math.ceil(hres/5));
     return str;
 }
-function movv (arr, ipt, x, y, aux)
+function movv (arr, ipt, x, y)
 {
-    if(ipt == "w" && (arr[y-1][x] == ept || arr[y-1][x] == dpath))
+    if(ipt == "w")
     {
-        y--;
-        arr[y+1][x] = aux;
-        aux = arr[y][x];
-        arr[y][x] = player;
+        if(arr[y-1][x] == ept || arr[y-1][x] == dpath || arr[y-1][x] == bplacer)
+        {
+            arr[y][x] = aux;
+            aux = arr[y-1][x];
+            y--;
+            arr[y][x] = player;
+        }
+        else if(arr[y-1][x] == box && (arr[y-2][x] == ept || arr[y-2][x] ==bplacer))
+        {
+            if(arr[y-2][x] == ept)
+            {
+                arr[y-2][x] = box;
+            }
+            else
+            {
+                arr[y-2][x] = ept;
+            }
+            arr[y-1][x] = ept;
+            arr[y][x] = aux;
+            aux = arr[y-1][x];
+            y--;
+            arr[y][x] = player;
+        }
     }
-    else if(ipt == "s" && (arr[y+1][x] == ept || arr[y+1][x] == dpath))
+    else if(ipt == "s")
     {
-        y++;
-        arr[y-1][x] = aux;
-        aux = arr[y][x];
-        arr[y][x] = player;
+        if(arr[y+1][x] == ept || arr[y+1][x] == dpath || arr[y+1][x] == bplacer)
+        {
+            arr[y][x] = aux;
+            aux = arr[y+1][x];
+            y++;
+            arr[y][x] = player;
+        }
+        else if(arr[y+1][x] == box && (arr[y+2][x] == ept || arr[y+2][x] ==bplacer))
+        {
+            if(arr[y+2][x] == ept)
+            {
+                arr[y+2][x] = box;
+            }
+            else
+            {
+                arr[y+2][x] = ept;
+            }
+            arr[y+1][x] = ept;
+            arr[y][x] = aux;
+            aux = arr[y+1][x];
+            y++;
+            arr[y][x] = player;
+        }
     }
     return y;
 }
-function movh (arr, ipt, x, y, aux)
+function movh (arr, ipt, x, y)
 {
-    if(ipt == "a" && (arr[y][x-1] == ept || arr[y][x-1] == dpath))
+    if(ipt == "a")
     {
-        x--;
-        arr[y][x+1] = aux;
-        aux = arr[y][x];
-        arr[y][x] = player;
+        if(arr[y][x-1] == ept || arr[y][x-1] == dpath || arr[y][x-1] == bplacer)
+        {
+            arr[y][x] = aux;
+            aux = arr[y][x-1];
+            x--;
+            arr[y][x] = player;
+        }
+        else if(arr[y][x-1] == box && (arr[y][x-2] == ept || arr[y][x-2] ==bplacer))
+        {
+            if(arr[y][x-2] == ept)
+            {
+                arr[y][x-2] = box;
+            }
+            else
+            {
+                arr[y][x-2] = ept;
+            }
+            arr[y][x-1] = ept;
+            arr[y][x] = aux;
+            aux = arr[y][x-1];
+            x--;
+            arr[y][x] = player;
+        }
     }
-    else if(ipt == "d" && (arr[y][x+1] == ept || arr[y][x+1] == dpath))
+    else if(ipt == "d")
     {
-        x++;
-        arr[y][x-1] = aux;
-        aux = arr[y][x];
-        arr[y][x] = player;
+        if(arr[y][x+1] == ept || arr[y][x+1] == dpath || arr[y][x+1] == bplacer)
+        {
+            arr[y][x] = aux;
+            aux = arr[y][x+1];
+            x++;
+            arr[y][x] = player;
+        }
+        else if(arr[y][x+1] == box && (arr[y][x+2] == ept || arr[y][x+2] ==bplacer))
+        {
+            if(arr[y][x+2] == ept)
+            {
+                arr[y][x+2] = box;
+            }
+            else
+            {
+                arr[y][x+2] = ept;
+            }
+            arr[y][x+1] = ept;
+            arr[y][x] = aux;
+            aux = arr[y][x+1];
+            x++;
+            arr[y][x] = player;
+        }
     }
     return x;
 }
@@ -142,11 +218,65 @@ function basemap(x, y)
     posx = x;
     posy = y;
 }
-function room1()
+function room1(x, y, ipt)
 {
+    if(r1[1] == undefined || r1[1][1] != prize1)
+    {
+        r1 = 
+        [[wall,wall,wall,wall,wall,wall,wall,wall],
+        [wall,ept,ept,ept,ept,ept,ept,wall],
+        [wall,ept,ept,ept,ept,ept,ept,wall],
+        [wall,ept,ept,ept,ept,ept,ept,door],
+        [wall,ept,ept,ept,ept,ept,ept,wall],
+        [wall,ept,ept,ept,ept,ept,ept,wall],
+        [wall,wall,wall,wall,wall,wall,wall,wall]];
+    }
     map = r1;
     posx = 6;
     posy = 3;
+    if(map[1][1] != prize1)
+    {
+        for(i=0;i<4;i++)
+        {
+            do
+            {
+                var xb = Math.ceil(Math.random()*3)+1;
+                var yb = Math.ceil(Math.random()*3)+1;
+            }while((xb == 3 && yb == 3) || map[yb][xb] != ept)
+            map[yb][xb] = box;
+            do
+            {
+                var xp = Math.ceil(Math.random()*5);
+                var yp = Math.ceil(Math.random()*5);
+            }while(map[yp][xp] != ept)
+            map[yp][xp] = bplacer;
+        }
+    }
+}
+function r1comp(arr, ipt)
+{
+    var conf;
+    for(i=1;i<=5;i++)
+    {
+        conf = arr[i].indexOf(box);
+        if(conf != -1)
+        {
+            break;
+        }
+    }
+    if(conf == -1 && inventory.indexOf("⚿ Chave para sala 2") == -1)
+    {
+        arr[1][1] = prize1;
+    }
+    if(ipt == "f" && (arr[1][2] == player || arr[2][1] == player))
+    {
+        inventory.push("⚿ Chave para sala 2");
+        arr[1][1] = ept;
+        map = bmap;
+        map[9][0] = wall;
+        posx = 1;
+        posy = 9;
+    }
 }
 function room2()
 {
@@ -171,16 +301,12 @@ function crenmy (pdmg, arr, plr, tarr, n)
         return [x,y,true];
     }
 }
-function crenmymov(arr, tarr, n, x0, y0)
+function crenmymov(arr, tarr, n)
 {
     var x = tarr[n][2];
     var y = tarr[n][1];
     if(y == tarr[n][3])
     {
-        if(x == tarr[n][4])
-        {
-            tarr[n][4] = x0;
-        }
         if(x > tarr[n][4] && arr[y][x-1] == ept)
         {
             arr[y][tarr[n][2]] = ept;
@@ -275,10 +401,11 @@ function enmyset (arr, cr, lr)
 }
 function enmyev (arr)
 {
+    var aux;
     for(i=0;i<crarr.length;i++)
     {
         aux = crenmy(damage,arr,player,crarr,i);
-        crenmymov(arr,crarr,i, );
+        //crenmymov(arr, crarr, i);
         if(aux != undefined && aux[2] == false)
         {
             arr[aux[1]][aux[0]] = ept;
@@ -293,12 +420,13 @@ function enmyev (arr)
         }
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2;
 hr = 7;
 vr = 7;
 map = [];
 crarr = [[40,3,1,3,5],[40,9,11,9,7],[40,17,9,13,9]];
 lrarr = [[25,7,1],[25,10,7],[25,16,3]];
+inventory = [];
 player = "◯";//◯😆೦
 wall = "⬛";//█⬛
 crsprite = "⬤";//⭕೧⬤〠
@@ -308,6 +436,12 @@ sw = 0;
 dpath = " · ";
 grass = "Δ ";
 door = "□";
+box = "▤";
+bplacer = "▣";
+aux = ept;
+prize1 = "⚿";
+prize2 = "⚿ Chave para porta final";
+movcount = 0;
 bmap = 
    [[wall,wall,wall,wall,wall,wall,wall,wall,door,door,door,wall,wall],
     [wall,grass,grass,grass,grass,grass,wall,grass,ept,ept,ept,grass,wall],
@@ -329,14 +463,8 @@ bmap =
     [wall,grass,grass,grass,grass,grass,wall,grass,grass,ept,grass,grass,wall],
     [wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall]];
 
-r1 = 
-    [[wall,wall,wall,wall,wall,wall,wall,wall],
-    [wall,ept,ept,ept,ept,ept,ept,wall],
-    [wall,ept,ept,ept,ept,ept,ept,wall],
-    [wall,ept,ept,ept,ept,ept,ept,door],
-    [wall,ept,ept,ept,ept,ept,ept,wall],
-    [wall,ept,ept,ept,ept,ept,ept,wall],
-    [wall,wall,wall,wall,wall,wall,wall,wall]];
+r1 = [[]];
+
 r2=
     [[wall,wall,wall,wall,wall,wall,wall,wall],
     [wall,ept,ept,ept,ept,ept,ept,wall],
@@ -352,20 +480,20 @@ do
 {
     map[posy][posx] = player;
     enmyev(map);
-    posy = movv(map,input,posx,posy,ept);
-    posx = movh(map,input,posx,posy,ept);
+    posy = movv(map,input,posx,posy);
+    posx = movh(map,input,posx,posy);
     dmgdot(posx,posy,map,dpath,distance);
     input = prompt(refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
     if(parseInt(input) >= 1 && parseInt(input) <= 3)
     {
         sw = parseInt(input);
     }
-    if(map == bmap && map[9][1] == player && input == "f")
+    if(map == bmap && map[9][1] == player && map[9][0] == door && input == "f")
     {
         input = "";
-        room1();
+        room1(posx,posy,input);
     }
-    if(map == bmap && map[15][11] == player && input == "f")
+    if(map == bmap && map[15][11] == player && map[15][12] == door && inventory.indexOf("⚿ Chave para sala 2") != -1 && input == "f")
     {
         input = "";
         room2();
@@ -380,6 +508,10 @@ do
         input = "";
         basemap(11,15);
     }
+    if(map == r1)
+    {
+        r1comp(map, input);
+    }
     wepret = chweapon(sw);
-    //console.log(crarr[0][0]+"\n"+sw+"\n"+chweapon(sw)+"\n");
+    movcount++;
 }while(input != "x")
