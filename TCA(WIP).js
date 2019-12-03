@@ -344,40 +344,59 @@ function crenmymov(arr, tarr, n)
 {
     var x = tarr[n][2];
     var y = tarr[n][1];
-    if(y == tarr[n][3])
+    if(y == tarr[n][dy] && x != tarr[n][dx])
     {
-        if(x > tarr[n][4] && arr[y][x-1] == ept)
+        if(x > tarr[n][dx] && arr[y][x-1] == ept)
         {
             arr[y][tarr[n][2]] = ept;
             tarr[n][2]--;
             arr[y][tarr[n][2]] = crsprite;
         }
-        else if(x < tarr[n][4] && arr[y][x+1] == ept)
+        else if(x < tarr[n][dx] && arr[y][x+1] == ept)
         {
             arr[y][tarr[n][2]] = ept;
             tarr[n][2]++;
             arr[y][tarr[n][2]] = crsprite;
         }
     }
-    else
+    if(x == tarr[n][dx] && y != tarr[n][dy])
     {
-        if(x == tarr[n][3])
-        {
-            tarr[n][3] = y0;
-        }
-        if(y > tarr[n][3] && arr[y-1][x] == ept)
+        if(y > tarr[n][dy] && arr[y-1][x] == ept)
         {
             arr[tarr[n][1]][x] = ept;
             tarr[n][1]--;
             arr[tarr[n][1]][x] = crsprite;
         }
-        else if(y < tarr[n][3] && arr[y+1][x] == ept)
+        else if(y < tarr[n][dy] && arr[y+1][x] == ept)
         {
             arr[tarr[n][1]][x] = ept;
             tarr[n][1]++;
             arr[tarr[n][1]][x] = crsprite;
         }
     }
+    if(y == tarr[n][dy] && x == tarr[n][dx])
+    {
+        if(dy == 3)
+        {
+            dy = 5;
+        }
+        else if(dy == 5)
+        {
+            dy = 3;
+        }
+        if(dx == 4)
+        {
+            dx = 6;
+        }
+        else if(dx == 6)
+        {
+            dx = 4;
+        }
+    }
+}
+function crenmydmg()
+{
+    
 }
 function lrenmy (pdmg, arr, plr, tarr, n)
 {
@@ -444,7 +463,7 @@ function enmyev (arr)
     for(i=0;i<crarr.length;i++)
     {
         aux = crenmy(damage,arr,player,crarr,i);
-        //crenmymov(arr, crarr, i);
+        crenmymov(arr, crarr, i);
         if(aux != undefined && aux[2] == false)
         {
             arr[aux[1]][aux[0]] = ept;
@@ -459,11 +478,11 @@ function enmyev (arr)
         }
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2, health, dx, dy;
 hr = 7;
 vr = 7;
 map = [];
-crarr = [[40,3,1,3,5],[40,9,11,9,7],[40,17,9,13,9]];
+crarr = [[40,3,1,3,5,3,1],[40,9,11,9,7,9,11],[40,17,9,13,9,17,9]];
 lrarr = [[25,7,1],[25,10,7],[25,16,3]];
 inventory = [];
 player = "◯";//◯😆೦
@@ -480,7 +499,10 @@ bplacer = "▣";
 aux = ept;
 prize1 = "⚿";
 prize2 = "⚿";
+health = 100;
 var hnarr = [];
+dx = 4;
+dy = 3;
 for(i=0;i<4;i++)
 {
     hnarr.push(Math.ceil(Math.random()*5));
@@ -524,7 +546,6 @@ enmyset(map, crsprite, lrsprite);
 do
 {
     map[posy][posx] = player;
-    enmyev(map);
     posy = movv(map,input,posx,posy);
     posx = movh(map,input,posx,posy);
     dmgdot(posx,posy,map,dpath,distance);
@@ -569,6 +590,10 @@ do
     if(parseInt(input) >= 1 && parseInt(input) <= 3)
     {
         sw = parseInt(input);
+    }
+    if(map == bmap)
+    {
+        enmyev(map);
     }
     wepret = chweapon(sw);
     movcount++;
