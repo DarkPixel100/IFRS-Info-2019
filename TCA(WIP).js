@@ -234,6 +234,7 @@ function room1(x, y, ipt)
     map = r1;
     posx = 6;
     posy = 3;
+    map[posy][posx] = player;
     if(map[1][1] != prize1)
     {
         for(i=0;i<4;i++)
@@ -264,18 +265,18 @@ function r1comp(arr, ipt)
             break;
         }
     }
-    if(conf == -1 && inventory.indexOf("⚿ Chave para sala 2") == -1)
+    if(conf == -1 && inventory.indexOf("⚿ Chave para sala dos números") == -1)
     {
         arr[1][1] = prize1;
-    }
-    if(ipt == "f" && (arr[1][2] == player || arr[2][1] == player))
-    {
-        inventory.push("⚿ Chave para sala 2");
-        arr[1][1] = ept;
-        map = bmap;
-        map[9][0] = wall;
-        posx = 1;
-        posy = 9;
+        if(ipt == "f" && (arr[1][2] == player || arr[2][1] == player))
+        {
+            inventory.push("⚿ Chave para sala dos números");
+            arr[1][1] = ept;
+            map = bmap;
+            map[9][0] = wall;
+            posx = 1;
+            posy = 9;
+        }
     }
 }
 function room2()
@@ -283,6 +284,44 @@ function room2()
     map = r2;
     posx = 1;
     posy = 3;
+    map[posy][posx] = player;
+}
+function r2comp(arr, narr, ipt, x, y)
+{
+    var conf = true;
+    if(x == 5 && ipt == "f")
+    {
+        cnarr.push(y);
+    }
+    if(ipt == "f" && (arr[1][2] == player || arr[2][1] == player) && inventory.indexOf("⚿ Chave para sala final") == -1)
+    {
+        inventory.push("⚿ Chave para sala final");
+        arr[1][1] = ept;
+        map = bmap;
+        map[15][12] = wall;
+        posx = 11;
+        posy = 15;
+    }
+    if(cnarr.length == 4)
+    {
+        for(i=0;i<4;i++)
+        {
+            if(cnarr[i] != narr[i])
+            {
+                conf = false;
+                break;
+            }
+        }
+        if(conf == true)
+        {
+            arr[1][1] = prize2;
+            for(j=1;j<=5;j++)
+            {
+                arr[j][6] = "⊗";
+            }
+        }
+    }
+    console.log(hnarr);
 }
 function crenmy (pdmg, arr, plr, tarr, n)
 {
@@ -420,7 +459,7 @@ function enmyev (arr)
         }
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, hnarr;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2;
 hr = 7;
 vr = 7;
 map = [];
@@ -440,11 +479,13 @@ box = "▤";
 bplacer = "▣";
 aux = ept;
 prize1 = "⚿";
-prize2 = "⚿ Chave para porta final";
-for(i=0;i<5;i++)
+prize2 = "⚿";
+var hnarr = [];
+for(i=0;i<4;i++)
 {
-    hnarr[i] = Math.ceil(Math.round()*5);
+    hnarr.push(Math.ceil(Math.random()*5));
 }
+var cnarr = [];
 movcount = 0;
 bmap = 
    [[wall,wall,wall,wall,wall,wall,wall,wall,door,door,door,wall,wall],
@@ -487,34 +528,47 @@ do
     posy = movv(map,input,posx,posy);
     posx = movh(map,input,posx,posy);
     dmgdot(posx,posy,map,dpath,distance);
-    input = prompt(refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
-    if(parseInt(input) >= 1 && parseInt(input) <= 3)
-    {
-        sw = parseInt(input);
-    }
     if(map == bmap && map[9][1] == player && map[9][0] == door && input == "f")
     {
         input = "";
         room1(posx,posy,input);
     }
-    if(map == bmap && map[15][11] == player && map[15][12] == door && inventory.indexOf("⚿ Chave para sala 2") != -1 && input == "f")
+    if(map == bmap && map[15][11] == player && map[15][12] == door && input == "f")
     {
-        input = "";
-        room2();
-    }
-    if(map == r1 && map[3][6] == player && input == "f")
-    {
-        input = "";
-        basemap(1,9);
-    }
-    if(map == r2 && map[3][1] == player && input == "f")
-    {
-        input = "";
-        basemap(11,15);
+        if(inventory.indexOf("⚿ Chave para sala dos números") != -1)
+        {
+            inventory.pop();
+            d2 = true;
+        }
+        if(d2)
+        {
+            input = "";
+            room2();
+        }
     }
     if(map == r1)
     {
+        if(map[3][6] == player && input == "f")
+        {
+            input = "";
+            basemap(1,9);
+        }
         r1comp(map, input);
+    }
+    if(map == r2)
+    {
+        if(map[3][1] == player && input == "f")
+        {
+            input = "";
+            basemap(11,15);
+            cnarr = [];
+        }
+        r2comp(map, hnarr, input, posx, posy);
+    }
+    input = prompt("-" + inventory.join("\n") + "\n" + refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
+    if(parseInt(input) >= 1 && parseInt(input) <= 3)
+    {
+        sw = parseInt(input);
     }
     wepret = chweapon(sw);
     movcount++;
