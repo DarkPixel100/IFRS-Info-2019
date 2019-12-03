@@ -420,7 +420,7 @@ function enmyev (arr)
         }
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, hnarr;
 hr = 7;
 vr = 7;
 map = [];
@@ -441,6 +441,10 @@ bplacer = "▣";
 aux = ept;
 prize1 = "⚿";
 prize2 = "⚿ Chave para porta final";
+for(i=0;i<5;i++)
+{
+    hnarr[i] = Math.ceil(Math.round()*5);
+}
 movcount = 0;
 bmap = 
    [[wall,wall,wall,wall,wall,wall,wall,wall,door,door,door,wall,wall],
@@ -467,11 +471,11 @@ r1 = [[]];
 
 r2=
     [[wall,wall,wall,wall,wall,wall,wall,wall],
-    [wall,ept,ept,ept,ept,ept,ept,wall],
-    [wall,ept,ept,ept,ept,ept,ept,wall],
-    [door,ept,ept,ept,ept,ept,ept,wall],
-    [wall,ept,ept,ept,ept,ept,ept,wall],
-    [wall,ept,ept,ept,ept,ept,ept,wall],
+    [wall,ept,ept,ept,ept,ept,"①",wall],
+    [wall,ept,ept,ept,ept,ept,"②",wall],
+    [door,ept,ept,ept,ept,ept,"③",wall],
+    [wall,ept,ept,ept,ept,ept,"④",wall],
+    [wall,ept,ept,ept,ept,ept,"⑤",wall],
     [wall,wall,wall,wall,wall,wall,wall,wall]];
 
 basemap(9,3);
