@@ -212,6 +212,45 @@ function dmgdot (x, y, arr, dot, dist)
     }
 
 }
+function plrdmg(cd, ld, arr)
+{
+    if(map == bmap)
+    {
+        if(health > 0)
+        {
+            if(movcount%2 == 0)
+            {
+                for(i=0;i<crarr.length;i++)
+                {
+                    if(crenmydmg(map, crarr, i, player))
+                    {
+                        health -= cd;
+                        if(health <= 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for(j=0;j<lrarr.length;j++)
+                {
+                    if(lrenmydmg(map, lrarr, j, player))
+                    {
+                        health -= ld;
+                        if(health <= 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+    }
+    return false;
+}
 function basemap(x, y)
 {
     map = bmap;
@@ -276,6 +315,7 @@ function r1comp(arr, ipt)
             map[9][0] = wall;
             posx = 1;
             posy = 9;
+            alert("A porta da sala começou a se fechar rapidamente, tive que correr para fora. Ao chegar na saída pude ler algo que estava escrito na parede \"Nas matas deste local se escondem os segredos, de norte a sul é a ordem dos mesmos\".");
         }
     }
 }
@@ -301,6 +341,7 @@ function r2comp(arr, narr, ipt, x, y)
         map[15][12] = wall;
         posx = 11;
         posy = 15;
+        alert("Da mesma forma que a outra sala, a porta se fechou rapidamente, mas consegui escapar, essa chave parece encaixar na fechadura daquela porta gigante ao norte.");
     }
     if(cnarr.length == 4)
     {
@@ -309,6 +350,8 @@ function r2comp(arr, narr, ipt, x, y)
             if(cnarr[i] != narr[i])
             {
                 conf = false;
+                alert("Ouço um barulho, creio que sinaliza que a sequência está errada, terei que começar denovo.");
+                cnarr.length = 0;
                 break;
             }
         }
@@ -321,7 +364,6 @@ function r2comp(arr, narr, ipt, x, y)
             }
         }
     }
-    console.log(hnarr);
 }
 function crenmy (pdmg, arr, plr, tarr, n)
 {
@@ -394,9 +436,15 @@ function crenmymov(arr, tarr, n)
         }
     }
 }
-function crenmydmg()
+function crenmydmg (arr, tarr, n, plr)
 {
-    
+    var x = tarr[n][2];
+    var y = tarr[n][1];
+    if(arr[y][x-1] == plr || arr[y][x+1] == plr || arr[y+1][x] == plr || arr[y-1][x] == plr)
+    {
+        return true;
+    }
+    return false;
 }
 function lrenmy (pdmg, arr, plr, tarr, n)
 {
@@ -429,6 +477,43 @@ function lrenmy (pdmg, arr, plr, tarr, n)
         }
         return [x,y,true];
     }
+}
+function lrenmydmg (arr, tarr, n, plr)
+{
+    var x = tarr[n][1];
+    var y = tarr[n][2];
+    if(movcount%2 != 0)
+    {
+        if(tarr[n][3] == "up")
+        {
+            if(arr[y-1][x] == plr || arr[y-2][x] == plr || arr[y-3][x] == plr)
+            {
+                return true;
+            }
+        }
+        if(tarr[n][3] == "dn")
+        {
+            if(arr[y+1][x] == plr || arr[y+2][x] == plr || arr[y+3][x] == plr)
+            {
+                return true;
+            }
+        }
+        if(tarr[n][3] == "lf")
+        {
+            if(arr[y][x-1] == plr || arr[y][x-2] == plr || arr[y][x-3] == plr)
+            {
+                return true;
+            }
+        }
+        if(tarr[n][3] == "rg")
+        {
+            if(arr[y][x+1] == plr || arr[y][x+2] == plr || arr[y][x+3] == plr)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 function chweapon (n)
 {
@@ -478,12 +563,12 @@ function enmyev (arr)
         }
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2, health, dx, dy;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2, health, dx, dy, crd, lrd;
 hr = 7;
 vr = 7;
 map = [];
 crarr = [[40,3,1,3,5,3,1],[40,9,11,9,7,9,11],[40,17,9,13,9,17,9]];
-lrarr = [[25,7,1],[25,10,7],[25,16,3]];
+lrarr = [[25,7,1,"lf"],[25,10,7,"up"],[25,16,3,"up"]];
 inventory = [];
 player = "◯";//◯😆೦
 wall = "⬛";//█⬛
@@ -503,6 +588,8 @@ health = 100;
 var hnarr = [];
 dx = 4;
 dy = 3;
+crd = 10;
+lrd = 15;
 for(i=0;i<4;i++)
 {
     hnarr.push(Math.ceil(Math.random()*5));
@@ -543,8 +630,9 @@ r2=
 
 basemap(9,3);
 enmyset(map, crsprite, lrsprite);
-do
+while(health > 0 && input != "x")
 {
+    plrdmg(crd, lrd)
     map[posy][posx] = player;
     posy = movv(map,input,posx,posy);
     posx = movh(map,input,posx,posy);
@@ -565,6 +653,10 @@ do
         {
             input = "";
             room2();
+        }
+        else
+        {
+            alert("A porta está trancada, devo procurar uma chave em outro lugar.");
         }
     }
     if(map == r1)
@@ -597,4 +689,8 @@ do
     }
     wepret = chweapon(sw);
     movcount++;
-}while(input != "x")
+}
+if(health <= 0)
+{
+    alert("Você morreu, mas a aventura poderá começar novamente.");
+}
