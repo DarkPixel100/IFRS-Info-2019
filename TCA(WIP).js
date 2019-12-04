@@ -1028,7 +1028,7 @@ r2=
 //Mostrando os comandos
         if(input == "cmd")
         {
-            alert("w-Cima\ns-Baixo\na-Esquerda\nd-Direita\n1-Mão vazia\n2-Espada\n3-Arco\nc(Com espada ou arco composto)-Atacar/Atirar\ncw/cs/ca/cd(Com o arco)-Atirar(cima, baixo, esquerda, direita)\nf-Interagir/Pegar itens/Usar itens\nx-Sair");
+            alert("w-Cima;\ns-Baixo;\na-Esquerda;\nd-Direita;\n1-Mão vazia;\n2-Espada;\n3-Arco;\nc(Com espada ou arco composto)-Atacar/Atirar;\ncw/cs/ca/cd(Com o arco)-Atirar(cima, baixo, esquerda, direita);\nf-Interagir/Pegar itens/Usar itens;\nx-Desistir.");
         }
 //Recebendo input de troca de instrumento
         if(parseInt(input) >= 1 && parseInt(input) <= 3 && wb == "basic")
