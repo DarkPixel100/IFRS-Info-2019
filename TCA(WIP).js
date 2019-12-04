@@ -236,7 +236,7 @@ function plrdmg(cd, ld, arr)
             {
                 for(j=0;j<lrarr.length;j++)
                 {
-                    if(lrenmydmg(map, lrarr, j, player))
+                    if(lrenmydmg(arr, lrarr, j, player))
                     {
                         health -= ld;
                         if(health <= 0)
@@ -248,8 +248,8 @@ function plrdmg(cd, ld, arr)
             }
             return true;
         }
+        return false;
     }
-    return false;
 }
 function basemap(x, y)
 {
@@ -480,37 +480,50 @@ function lrenmy (pdmg, arr, plr, tarr, n)
 }
 function lrenmydmg (arr, tarr, n, plr)
 {
-    var x = tarr[n][1];
-    var y = tarr[n][2];
-    if(movcount%2 != 0)
+    var x = tarr[n][2];
+    var y = tarr[n][1];
+    if(tarr[n][3] == "up")
     {
-        if(tarr[n][3] == "up")
+        if(arr[y-1][x] == ept)
         {
-            if(arr[y-1][x] == plr || arr[y-2][x] == plr || arr[y-3][x] == plr)
-            {
-                return true;
-            }
+            arr[y-1][x] = "⇡";
         }
-        if(tarr[n][3] == "dn")
+        if(arr[y-1][x] == plr || arr[y-2][x] == plr || arr[y-3][x] == plr)
         {
-            if(arr[y+1][x] == plr || arr[y+2][x] == plr || arr[y+3][x] == plr)
-            {
-                return true;
-            }
+            return true;
         }
-        if(tarr[n][3] == "lf")
+    }
+    if(tarr[n][3] == "dn")
+    {
+        if(arr[y+1][x] == ept)
         {
-            if(arr[y][x-1] == plr || arr[y][x-2] == plr || arr[y][x-3] == plr)
-            {
-                return true;
-            }
+            arr[y+1][x] = "⇣";
         }
-        if(tarr[n][3] == "rg")
+        if(arr[y+1][x] == plr || arr[y+2][x] == plr || arr[y+3][x] == plr)
         {
-            if(arr[y][x+1] == plr || arr[y][x+2] == plr || arr[y][x+3] == plr)
-            {
-                return true;
-            }
+            return true;
+        }
+    }
+    if(tarr[n][3] == "lf")
+    {
+        if(arr[y][x-1] == ept)
+        {
+            arr[y][x-1] = "⇠";
+        }
+        if(arr[y][x-1] == plr || arr[y][x-2] == plr || arr[y][x-3] == plr)
+        {
+            return true;
+        }
+    }
+    if(tarr[n][3] == "rg")
+    {
+        if(arr[y][x+1] == ept)
+        {
+            arr[y][x+1] = "⇢";
+        }
+        if(arr[y][x+1] == plr || arr[y][x+2] == plr || arr[y][x+3] == plr)
+        {
+            return true;
         }
     }
     return false;
@@ -568,7 +581,7 @@ hr = 7;
 vr = 7;
 map = [];
 crarr = [[40,3,1,3,5,3,1],[40,9,11,9,7,9,11],[40,17,9,13,9,17,9]];
-lrarr = [[25,7,1,"lf"],[25,10,7,"up"],[25,16,3,"up"]];
+lrarr = [[25,7,1,"rg"],[25,10,7,"up"],[25,16,3,"up"]];
 inventory = [];
 player = "◯";//◯😆೦
 wall = "⬛";//█⬛
@@ -632,7 +645,7 @@ basemap(9,3);
 enmyset(map, crsprite, lrsprite);
 while(health > 0 && input != "x")
 {
-    plrdmg(crd, lrd)
+    plrdmg(crd, lrd, map)
     map[posy][posx] = player;
     posy = movv(map,input,posx,posy);
     posx = movh(map,input,posx,posy);
