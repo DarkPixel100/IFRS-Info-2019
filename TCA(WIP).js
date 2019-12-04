@@ -1,4 +1,4 @@
-function refreshScr (arr, vres, hres, x, y)
+function refreshScr (arr, vres, hres, x, y, mob)
 {
     var str = "";
     for(rv=0;rv<vres;rv++)
@@ -13,19 +13,26 @@ function refreshScr (arr, vres, hres, x, y)
             {
                 str += "|";
             }
-            if(arr[y-(Math.ceil(vres/2))+rv+1] == undefined)
+            if(mob)
             {
-                arr[y-(Math.ceil(vres/2))+rv+1] = []
-                arr[y-(Math.ceil(vres/2))+rv+1].length = hres;
-                arr[y-(Math.ceil(vres/2))+rv+1].fill(ept);
+                if(arr[y-(Math.ceil(vres/2))+rv+1] == undefined)
+                {
+                    arr[y-(Math.ceil(vres/2))+rv+1] = []
+                    arr[y-(Math.ceil(vres/2))+rv+1].length = hres;
+                    arr[y-(Math.ceil(vres/2))+rv+1].fill(ept);
+                }
+                if(arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] == undefined)
+                {
+                    arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] = [ept];
+                }
+                if(arr[y-(Math.ceil(vres/2))+rv+1] != undefined && arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] != undefined)
+                {
+                    str += arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1];
+                }
             }
-            if(arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] == undefined)
+            else
             {
-                arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] = [ept];
-            }
-            if(arr[y-(Math.ceil(vres/2))+rv+1] != undefined && arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1] != undefined)
-            {
-                str += arr[y-(Math.ceil(vres/2))+rv+1][x-(Math.ceil(hres/2))+rh+1];
+                str += arr[rv][rh];
             }
         }
         str += "|\n";
@@ -37,7 +44,7 @@ function movv (arr, ipt, x, y)
 {
     if(ipt == "w")
     {
-        if(arr[y-1][x] == ept || arr[y-1][x] == dpath || arr[y-1][x] == bplacer)
+        if(arr[y-1][x] == ept || arr[y-1][x] == dpath || arr[y-1][x] == bplacer || arr[y-1][x] == mark)
         {
             arr[y][x] = aux;
             aux = arr[y-1][x];
@@ -63,7 +70,7 @@ function movv (arr, ipt, x, y)
     }
     else if(ipt == "s")
     {
-        if(arr[y+1][x] == ept || arr[y+1][x] == dpath || arr[y+1][x] == bplacer)
+        if(arr[y+1][x] == ept || arr[y+1][x] == dpath || arr[y+1][x] == bplacer || arr[y+1][x] == mark)
         {
             arr[y][x] = aux;
             aux = arr[y+1][x];
@@ -93,7 +100,7 @@ function movh (arr, ipt, x, y)
 {
     if(ipt == "a")
     {
-        if(arr[y][x-1] == ept || arr[y][x-1] == dpath || arr[y][x-1] == bplacer)
+        if(arr[y][x-1] == ept || arr[y][x-1] == dpath || arr[y][x-1] == bplacer || arr[y][x-1] == mark)
         {
             arr[y][x] = aux;
             aux = arr[y][x-1];
@@ -119,7 +126,7 @@ function movh (arr, ipt, x, y)
     }
     else if(ipt == "d")
     {
-        if(arr[y][x+1] == ept || arr[y][x+1] == dpath || arr[y][x+1] == bplacer)
+        if(arr[y][x+1] == ept || arr[y][x+1] == dpath || arr[y][x+1] == bplacer || arr[y][x+1] == mark)
         {
             arr[y][x] = aux;
             aux = arr[y][x+1];
@@ -160,10 +167,18 @@ function swrd (ipt)
     }
         return false;
 }
-function bow (ipt)
+function bow (ipt, which)
 {
-    damage = 5;
-    distance = 2;
+    if(which == "basic")
+    {
+        damage = 5;
+        distance = 2;
+    }
+    else
+    {
+        damage = 20;
+        distance = 5;
+    }
     if(ipt == "cw")
     {
         return ["up",true];
@@ -198,17 +213,20 @@ function dmgdot (x, y, arr, dot, dist)
     {
         arr[y-k][x] = dot;
     }
-    for(l=1;l<=dist && arr[y+l][x] == ept;l++)
+    if(arr != rf)
     {
-        arr[y+l][x] = dot;
-    }
-    for(m=1;m<=dist && arr[y][x-m] == ept;m++)
-    {
-        arr[y][x-m] = dot;
-    }
-    for(n=1;n<=dist && arr[y][x+n] == ept;n++)
-    {
-        arr[y][x+n] = dot;
+        for(l=1;l<=dist && arr[y+l][x] == ept;l++)
+        {
+            arr[y+l][x] = dot;
+        }
+        for(m=1;m<=dist && arr[y][x-m] == ept;m++)
+        {
+            arr[y][x-m] = dot;
+        }
+        for(n=1;n<=dist && arr[y][x+n] == ept;n++)
+        {
+            arr[y][x+n] = dot;
+        }
     }
 
 }
@@ -257,7 +275,24 @@ function basemap(x, y)
     posx = x;
     posy = y;
 }
-function room1(x, y, ipt)
+function roomf()
+{
+    map = rf;
+    posx = 5;
+    posy = 6;
+    map[posy][posx] = player;
+    vr = 8;
+    hr = 10;
+    cm = false;
+    sw = 3;
+    map[1][5] = bsprite;
+}
+function rfcomp(ipt)
+{
+    wb = "composed";
+    bow(ipt, wb);
+}
+function room1()
 {
     if(r1[1] == undefined || r1[1][1] != prize1)
     {
@@ -304,12 +339,12 @@ function r1comp(arr, ipt)
             break;
         }
     }
-    if(conf == -1 && inventory.indexOf("⚿ Chave para sala dos números") == -1)
+    if(conf == -1 && inventory.indexOf("-⚿ Chave para sala dos números") == -1)
     {
         arr[1][1] = prize1;
         if(ipt == "f" && (arr[1][2] == player || arr[2][1] == player))
         {
-            inventory.push("⚿ Chave para sala dos números");
+            inventory.push("-⚿ Chave para sala dos números");
             arr[1][1] = ept;
             map = bmap;
             map[9][0] = wall;
@@ -333,9 +368,9 @@ function r2comp(arr, narr, ipt, x, y)
     {
         cnarr.push(y);
     }
-    if(ipt == "f" && (arr[1][2] == player || arr[2][1] == player) && inventory.indexOf("⚿ Chave para sala final") == -1)
+    if(ipt == "f" && (arr[1][2] == player || arr[2][1] == player) && inventory.indexOf("-⚿ Chave para sala final") == -1)
     {
-        inventory.push("⚿ Chave para sala final");
+        inventory.push("-⚿ Chave para sala final");
         arr[1][1] = ept;
         map = bmap;
         map[15][12] = wall;
@@ -365,6 +400,82 @@ function r2comp(arr, narr, ipt, x, y)
         }
     }
 }
+function boss(pdmg, arr, ipt, tarr)
+{
+    var x = tarr[2];
+    var y = tarr[1];
+    if(tarr[0] > 0)
+    {
+        if(ipt == "c" && arr[y+1][x] == dpath)
+        {
+            tarr[0] -= pdmg;
+            if(tarr[n][0] <= 0)
+            {
+                return [x,y,false];
+            }
+        }
+        return [x,y,true];
+    }
+}
+function bossmov(arr, tarr)
+{
+    var x = tarr[2];
+    var y = tarr[1];
+    var dx = tarr[8];
+    var dy = tarr[7];
+    if(tarr[0] > 0)
+    {
+        if(y == tarr[dy] && x != tarr[dx])
+        {
+            if(x > tarr[dx] && (arr[y][x-1] == ept || arr[y][x-1] == dpath))
+            {
+                arr[y][tarr[2]] = ept;
+                tarr[2]--;
+                arr[y][tarr[2]] = bsprite;
+            }
+            else if(x < tarr[dx] && (arr[y][x+1] == ept || arr[y][x+1] == dpath))
+            {
+                arr[y][tarr[2]] = ept;
+                tarr[2]++;
+                arr[y][tarr[2]] = bsprite;
+            }
+        }
+        if(x == tarr[dx] && y != tarr[dy])
+        {
+            if(y > tarr[dy] && (arr[y][x+1] == ept || arr[y][x+1] == dpath))
+            {
+                arr[tarr[1]][x] = ept;
+                tarr[1]--;
+                arr[tarr[1]][x] = bsprite;
+            }
+            else if(y < tarr[dy] && (arr[y+1][x] == ept || arr[y+1][x] == dpath))
+            {
+                arr[tarr[1]][x] = ept;
+                tarr[1]++;
+                arr[tarr[1]][x] = bsprite;
+            }
+        }
+        if(y == tarr[dy] && x == tarr[dx])
+        {
+            if(tarr[7] == 3)
+            {
+                tarr[7] = 5;
+            }
+            else if(tarr[7] == 5)
+            {
+                tarr[7] = 3;
+            }
+            if(tarr[8] == 4)
+            {
+                tarr[8] = 6;
+            }
+            else if(tarr[8] == 6)
+            {
+                tarr[8] = 4;
+            }
+        }
+    }
+}
 function crenmy (pdmg, arr, plr, tarr, n)
 {
     var x = tarr[n][2];
@@ -386,53 +497,58 @@ function crenmymov(arr, tarr, n)
 {
     var x = tarr[n][2];
     var y = tarr[n][1];
-    if(y == tarr[n][dy] && x != tarr[n][dx])
+    var dx = tarr[n][8];
+    var dy = tarr[n][7];
+    if(tarr[n][0] > 0)
     {
-        if(x > tarr[n][dx] && arr[y][x-1] == ept)
+        if(y == tarr[n][dy] && x != tarr[n][dx])
         {
-            arr[y][tarr[n][2]] = ept;
-            tarr[n][2]--;
-            arr[y][tarr[n][2]] = crsprite;
+            if(x > tarr[n][dx] && arr[y][x-1] == ept)
+            {
+                arr[y][tarr[n][2]] = ept;
+                tarr[n][2]--;
+                arr[y][tarr[n][2]] = crsprite;
+            }
+            else if(x < tarr[n][dx] && arr[y][x+1] == ept)
+            {
+                arr[y][tarr[n][2]] = ept;
+                tarr[n][2]++;
+                arr[y][tarr[n][2]] = crsprite;
+            }
         }
-        else if(x < tarr[n][dx] && arr[y][x+1] == ept)
+        if(x == tarr[n][dx] && y != tarr[n][dy])
         {
-            arr[y][tarr[n][2]] = ept;
-            tarr[n][2]++;
-            arr[y][tarr[n][2]] = crsprite;
+            if(y > tarr[n][dy] && arr[y-1][x] == ept)
+            {
+                arr[tarr[n][1]][x] = ept;
+                tarr[n][1]--;
+                arr[tarr[n][1]][x] = crsprite;
+            }
+            else if(y < tarr[n][dy] && arr[y+1][x] == ept)
+            {
+                arr[tarr[n][1]][x] = ept;
+                tarr[n][1]++;
+                arr[tarr[n][1]][x] = crsprite;
+            }
         }
-    }
-    if(x == tarr[n][dx] && y != tarr[n][dy])
-    {
-        if(y > tarr[n][dy] && arr[y-1][x] == ept)
+        if(y == tarr[n][dy] && x == tarr[n][dx])
         {
-            arr[tarr[n][1]][x] = ept;
-            tarr[n][1]--;
-            arr[tarr[n][1]][x] = crsprite;
-        }
-        else if(y < tarr[n][dy] && arr[y+1][x] == ept)
-        {
-            arr[tarr[n][1]][x] = ept;
-            tarr[n][1]++;
-            arr[tarr[n][1]][x] = crsprite;
-        }
-    }
-    if(y == tarr[n][dy] && x == tarr[n][dx])
-    {
-        if(dy == 3)
-        {
-            dy = 5;
-        }
-        else if(dy == 5)
-        {
-            dy = 3;
-        }
-        if(dx == 4)
-        {
-            dx = 6;
-        }
-        else if(dx == 6)
-        {
-            dx = 4;
+            if(tarr[n][7] == 3)
+            {
+                tarr[n][7] = 5;
+            }
+            else if(tarr[n][7] == 5)
+            {
+                tarr[n][7] = 3;
+            }
+            if(tarr[n][8] == 4)
+            {
+                tarr[n][8] = 6;
+            }
+            else if(tarr[n][8] == 6)
+            {
+                tarr[n][8] = 4;
+            }
         }
     }
 }
@@ -484,9 +600,9 @@ function lrenmydmg (arr, tarr, n, plr)
     var y = tarr[n][1];
     if(tarr[n][3] == "up")
     {
-        if(arr[y-1][x] == ept)
+        if(arr[y-3][x] == ept)
         {
-            arr[y-1][x] = "⇡";
+            arr[y-3][x] = mark;
         }
         if(arr[y-1][x] == plr || arr[y-2][x] == plr || arr[y-3][x] == plr)
         {
@@ -495,9 +611,9 @@ function lrenmydmg (arr, tarr, n, plr)
     }
     if(tarr[n][3] == "dn")
     {
-        if(arr[y+1][x] == ept)
+        if(arr[y+3][x] == ept)
         {
-            arr[y+1][x] = "⇣";
+            arr[y+3][x] = mark;
         }
         if(arr[y+1][x] == plr || arr[y+2][x] == plr || arr[y+3][x] == plr)
         {
@@ -506,9 +622,9 @@ function lrenmydmg (arr, tarr, n, plr)
     }
     if(tarr[n][3] == "lf")
     {
-        if(arr[y][x-1] == ept)
+        if(arr[y][x-3] == ept)
         {
-            arr[y][x-1] = "⇠";
+            arr[y][x-3] = mark;
         }
         if(arr[y][x-1] == plr || arr[y][x-2] == plr || arr[y][x-3] == plr)
         {
@@ -517,9 +633,9 @@ function lrenmydmg (arr, tarr, n, plr)
     }
     if(tarr[n][3] == "rg")
     {
-        if(arr[y][x+1] == ept)
+        if(arr[y][x+3] == ept)
         {
-            arr[y][x+1] = "⇢";
+            arr[y][x+3] = mark;
         }
         if(arr[y][x+1] == plr || arr[y][x+2] == plr || arr[y][x+3] == plr)
         {
@@ -540,7 +656,7 @@ function chweapon (n)
     }
     if(n == 3)
     {
-        return bow(input);
+        return bow(input, wb);
     }
     return false;
 }
@@ -555,38 +671,48 @@ function enmyset (arr, cr, lr)
         arr[lrarr[j][1]][lrarr[j][2]] = lr;
     }
 }
-function enmyev (arr)
+function enmyev (arr,ipt)
 {
     var aux;
-    for(i=0;i<crarr.length;i++)
+    if(arr = bmap)
     {
-        aux = crenmy(damage,arr,player,crarr,i);
-        crenmymov(arr, crarr, i);
-        if(aux != undefined && aux[2] == false)
+        for(i=0;i<crarr.length;i++)
         {
-            arr[aux[1]][aux[0]] = ept;
+            aux = crenmy(damage,arr,player,crarr,i);
+            crenmymov(arr, crarr, i);
+            if(aux != undefined && aux[2] == false)
+            {
+                arr[aux[1]][aux[0]] = ept;
+            }
+        }
+        for(j=0;j<lrarr.length;j++)
+        {
+            aux = lrenmy(damage,arr,player,lrarr,j);
+            if(aux != undefined && aux[2] == false)
+            {
+                arr[aux[1]][aux[0]] = ept;
+            }
         }
     }
-    for(j=0;j<lrarr.length;j++)
+    else
     {
-        aux = lrenmy(damage,arr,player,lrarr,j);
-        if(aux != undefined && aux[2] == false)
-        {
-            arr[aux[1]][aux[0]] = ept;
-        }
+        aux = boss(damage,arr,ipt,barr);
+        bossmov(arr,barr);
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2, health, dx, dy, crd, lrd;
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2, df, health, dx, dy, crd, lrd, mark, cm, wb;
 hr = 7;
 vr = 7;
 map = [];
-crarr = [[40,3,1,3,5,3,1],[40,9,11,9,7,9,11],[40,17,9,13,9,17,9]];
+crarr = [[40,3,1,3,5,3,1,3,4],[40,9,11,9,7,9,11,3,4],[40,17,9,13,9,17,9,3,4]];
 lrarr = [[25,7,1,"rg"],[25,10,7,"up"],[25,16,3,"up"]];
-inventory = [];
+barr = [200,1,5,1,8,1,1,3,4];
+inventory = ["-⚿ Chave para sala final"];
 player = "◯";//◯😆೦
 wall = "⬛";//█⬛
 crsprite = "⬤";//⭕೧⬤〠
 lrsprite = "⭕";
+bsprite = "〠";
 ept = "   ";
 sw = 0;
 dpath = " · ";
@@ -597,12 +723,13 @@ bplacer = "▣";
 aux = ept;
 prize1 = "⚿";
 prize2 = "⚿";
+mark = "⊚ ";//🞋
+wb = "basic";
 health = 100;
 var hnarr = [];
-dx = 4;
-dy = 3;
 crd = 10;
 lrd = 15;
+cm = true;
 for(i=0;i<4;i++)
 {
     hnarr.push(Math.ceil(Math.random()*5));
@@ -630,80 +757,151 @@ bmap =
     [wall,grass,grass,grass,grass,grass,wall,grass,grass,ept,grass,grass,wall],
     [wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall]];
 
+rf = 
+    [[wall,wall,wall,wall,wall,door,wall,wall,wall,wall],
+    [wall,ept,ept,ept,ept,ept,ept,ept,ept,wall],
+    [wall,ept,ept,ept,ept,ept,ept,ept,ept,wall],
+    [wall,ept,ept,ept,ept,ept,ept,ept,ept,wall],
+    [wall,ept,ept,ept,ept,ept,ept,ept,ept,wall],
+    [wall,ept,ept,ept,ept,ept,ept,ept,ept,wall],
+    [wall,ept,ept,ept,ept,ept,ept,ept,ept,wall],
+    [wall,wall,wall,wall,door,door,door,wall,wall,wall]];
+
 r1 = [[]];
 
 r2=
     [[wall,wall,wall,wall,wall,wall,wall,wall],
-    [wall,ept,ept,ept,ept,ept,"①",wall],
-    [wall,ept,ept,ept,ept,ept,"②",wall],
-    [door,ept,ept,ept,ept,ept,"③",wall],
-    [wall,ept,ept,ept,ept,ept,"④",wall],
-    [wall,ept,ept,ept,ept,ept,"⑤",wall],
+    [wall,ept,ept,ept,ept,ept," ①",wall],
+    [wall,ept,ept,ept,ept,ept," ②",wall],
+    [door,ept,ept,ept,ept,ept," ③",wall],
+    [wall,ept,ept,ept,ept,ept," ④",wall],
+    [wall,ept,ept,ept,ept,ept," ⑤",wall],
     [wall,wall,wall,wall,wall,wall,wall,wall]];
 
 basemap(9,3);
 enmyset(map, crsprite, lrsprite);
-while(health > 0 && input != "x")
+do
 {
-    plrdmg(crd, lrd, map)
-    map[posy][posx] = player;
-    posy = movv(map,input,posx,posy);
-    posx = movh(map,input,posx,posy);
-    dmgdot(posx,posy,map,dpath,distance);
-    if(map == bmap && map[9][1] == player && map[9][0] == door && input == "f")
+    while(health > 0 && input != "x")
     {
-        input = "";
-        room1(posx,posy,input);
-    }
-    if(map == bmap && map[15][11] == player && map[15][12] == door && input == "f")
-    {
-        if(inventory.indexOf("⚿ Chave para sala dos números") != -1)
+        plrdmg(crd, lrd, map)
+        map[posy][posx] = player;
+        posy = movv(map,input,posx,posy);
+        posx = movh(map,input,posx,posy);
+        dmgdot(posx,posy,map,dpath,distance);
+        if(map == bmap && (map[1][8] == player || map[1][9] == player || map[1][10] == player) && input == "f")
         {
-            inventory.pop();
-            d2 = true;
+            if(inventory.indexOf("-⚿ Chave para sala final") != -1)
+            {
+                inventory.pop();
+                df = true;
+            }
+            if(df)
+            {
+                input = "";
+                alert("Funcionou! Estou live!");
+                alert("Ou...");
+                alert("Parece que não");
+                alert("-__-");
+                alert("Você encontrou um arco composto, ele atira mais longe e dá mais dano.");
+                roomf();
+            }
+            else
+            {
+                alert("É uma porta enorme, preciso se alguma chave para abrí-la e sair daqui.");
+            }
         }
-        if(d2)
-        {
-            input = "";
-            room2();
-        }
-        else
-        {
-            alert("A porta está trancada, devo procurar uma chave em outro lugar.");
-        }
-    }
-    if(map == r1)
-    {
-        if(map[3][6] == player && input == "f")
-        {
-            input = "";
-            basemap(1,9);
-        }
-        r1comp(map, input);
-    }
-    if(map == r2)
-    {
-        if(map[3][1] == player && input == "f")
+        if(map == bmap && map[9][1] == player && map[9][0] == door && input == "f")
         {
             input = "";
-            basemap(11,15);
-            cnarr = [];
+            room1(posx,posy,input);
         }
-        r2comp(map, hnarr, input, posx, posy);
+        if(map == bmap && map[15][11] == player && map[15][12] == door && input == "f")
+        {
+            if(inventory.indexOf("-⚿ Chave para sala dos números") != -1)
+            {
+                inventory.pop();
+                d2 = true;
+            }
+            if(d2)
+            {
+                input = "";
+                alert("A porta abriu, consigo ler coisas escritas na parede \"Se os segredos escondidos foram encontrados, este é o local em que serão utilizados\"");
+                room2();
+            }
+            else
+            {
+                alert("A porta está trancada, devo procurar uma chave em outro lugar.");
+            }
+        }
+        if(map == bmap && input == "f")
+        {
+            if(map[2][4] == player)
+            {
+                alert(hnarr[0]);
+            }
+            if(map[8][10] == player)
+            {
+                alert(hnarr[1]);
+            }
+            if(map[14][2] == player)
+            {
+                alert(hnarr[2]);
+            }
+            if(map[16][2] == player)
+            {
+                alert(hnarr[3]);
+            }
+        }
+        if(map == rf)
+        {
+            rfcomp(input);
+        }
+        if(map == r1)
+        {
+            if(map[3][6] == player && input == "f")
+            {
+                input = "";
+                basemap(1,9);
+            }
+            r1comp(map, input);
+        }
+        if(map == r2)
+        {
+            if(map[3][1] == player && input == "f")
+            {
+                input = "";
+                basemap(11,15);
+                cnarr = [];
+            }
+            r2comp(map, hnarr, input, posx, posy);
+        }
+        input = prompt(inventory.join("\n") + "\n" + refreshScr(map,vr,hr,posx,posy,cm)+"\nVida: "+health+"%\nDigite\"cmd\" para uma lista de comandos").trim().toLowerCase();
+        if(input == "cmd")
+        {
+            alert("w-Cima\ns-Baixo\na-Esquerda\nd-Direita\n1-Mão vazia\n2-Espada\n3-Arco\nc(Com espada ou arco composto)-Atacar/Atirar\ncw/cs/ca/cd(Com o arco)-Atirar(cima, baixo, esquerda, direita)\nf-Interagir/Pegar itens/Usar itens");
+        }
+        if(parseInt(input) >= 1 && parseInt(input) <= 3)
+        {
+            sw = parseInt(input);
+        }
+        if(map == bmap || map == rf)
+        {
+            enmyev(map,input);
+        }
+        wepret = chweapon(sw);
+        movcount++;
     }
-    input = prompt("-" + inventory.join("\n") + "\n" + refreshScr(map,vr,hr,posx,posy)+"\n1-Mão vazia 2-Espada 3-Arco").trim().toLowerCase();
-    if(parseInt(input) >= 1 && parseInt(input) <= 3)
+    if(health <= 0)
     {
-        sw = parseInt(input);
+        alert("Você morreu, mas a aventura poderá começar novamente.");
+        do
+        {
+            pa = prompt("Deseja começar novamente?(\"s-Sim n-Não\")");
+            if(pa != "s" && pa != "n")
+            {
+                alert("Resposta inválida, tente novamente");
+            }
+        }while(pa != "s" && pa != "n")
     }
-    if(map == bmap)
-    {
-        enmyev(map);
-    }
-    wepret = chweapon(sw);
-    movcount++;
-}
-if(health <= 0)
-{
-    alert("Você morreu, mas a aventura poderá começar novamente.");
-}
+}while(pa == "s")
