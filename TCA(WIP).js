@@ -828,16 +828,21 @@ mark = "⊚ ";//🞋
 ballsprite = "⊛";
 crd = 5;
 lrd = 10;
+pa = "s";
 //Iniciando o sistema do jogo
 do
 {
 //Menu principal:
-    menu = parseInt(prompt("Zelda: The spin-off\n1-Jogar\n2-Créditos").trim());
-    if(menu == 2)
+    menu = parseInt(prompt("Zelda: The spin-off\n1-Jogar\n2-Instruções\n3-Créditos").trim());
+    if(menu == 3)
     {
         alert("Roteirista: Diego Fontes de Avila\nLevel designer: Diego Fontes de Avila\nProgramador: Diego Fontes de Avila\nBeta tester: Diego Fontes de Avila");
     }
-    if(menu != 1 && menu != 2)
+    if(menu == 2)
+    {
+        alert("-Sua espada dá dano nos quatro pontos à sua volta;\n-O arco dá dano na linha selecionada;\n-⬤ Cavaleiros-Atacam da mesma forma que sua espada, só podem ser mortos por uma espada;\n-⭕ Arqueiros-Atacamda mesma forma que seu arco, porém em uma linha pré determinada e com maior alcance, suas flechas vão em uma linha reta até o ponto ⊚.");
+    }
+    if(menu != 1 && menu != 2 && menu != 3)
     {
         alert("Opção inválida, tente novamente.");
     }
@@ -861,6 +866,7 @@ do
     hnarr = [];
     cm = true;
     distance = 0;
+    input = "";
     for(i=0;i<4;i++)
     {
         hnarr.push(Math.ceil(Math.random()*5));
@@ -1052,10 +1058,18 @@ r2=
             }
         }while(pa != "s" && pa != "n")
     }
-    else
+    else if(input != "x")
     {
         alert("Você finalmente sai do local onde estava, correndo.");
         alert("Até que você acorda, denovo, só que dessa vez em seu quarto, e percebe que tudo havia sido um sonho.");
+        pa = prompt("Deseja começar novamente?(\"s-Sim n-Não\")");
+        if(pa != "s" && pa != "n")
+        {
+            alert("Resposta inválida, tente novamente");
+        }
+    }
+    if(input == "x")
+    {
         pa = prompt("Deseja começar novamente?(\"s-Sim n-Não\")");
         if(pa != "s" && pa != "n")
         {
