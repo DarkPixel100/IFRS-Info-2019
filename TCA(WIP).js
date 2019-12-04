@@ -1,3 +1,4 @@
+//Função para colocar a tela em uma string
 function refreshScr (arr, vres, hres, x, y, mob)
 {
     var str;
@@ -25,7 +26,7 @@ function refreshScr (arr, vres, hres, x, y, mob)
             {
                 if(arr[y-(Math.ceil(vres/2))+rv+1] == undefined)
                 {
-                    arr[y-(Math.ceil(vres/2))+rv+1] = []
+                    arr[y-(Math.ceil(vres/2))+rv+1] = [];
                     arr[y-(Math.ceil(vres/2))+rv+1].length = hres;
                     arr[y-(Math.ceil(vres/2))+rv+1].fill(ept);
                 }
@@ -48,6 +49,7 @@ function refreshScr (arr, vres, hres, x, y, mob)
     str += "‾".repeat(hres*2+Math.ceil(hres/5));
     return str;
 }
+//Funções de movimento vertical e horizontal(no plano 2d)
 function movv (arr, ipt, x, y)
 {
     if(ipt == "w")
@@ -160,6 +162,7 @@ function movh (arr, ipt, x, y)
     }
     return x;
 }
+//Funções dos equipamentos que podem se utilizados
 function epthand ()
 {
     distance = 0;
@@ -205,6 +208,7 @@ function bow (ipt, which)
     }
     return ["none",false];
 }
+//Função para mostrar onde os ataques podem acontecer
 function dmgdot (x, y, arr, dot, dist)
 {
     for(i=0;i<arr.length;i++)
@@ -238,6 +242,7 @@ function dmgdot (x, y, arr, dot, dist)
     }
 
 }
+//Função para reduzir a vida do jogador e verificar se ele ainda está vivo
 function plrdmg(cd, ld, arr)
 {
     if(map == bmap)
@@ -277,12 +282,14 @@ function plrdmg(cd, ld, arr)
         return false;
     }
 }
+//Função para gerar o mapa de base
 function basemap(x, y)
 {
     map = bmap;
     posx = x;
     posy = y;
 }
+//Função para gerar a sala final
 function roomf()
 {
     map = rf;
@@ -295,11 +302,13 @@ function roomf()
     sw = 3;
     map[1][5] = bsprite;
 }
+//Função para executar comandos expecíficos da sala final
 function rfcomp(ipt)
 {
     wb = "composed";
     bow(ipt, wb);
 }
+//Função para gerar o mapa da sala 1
 function room1()
 {
     if(r1[1] == undefined || r1[1][1] != prize1)
@@ -336,6 +345,7 @@ function room1()
         }
     }
 }
+//Função para executar comandos expecíficos da sala 1
 function r1comp(arr, ipt)
 {
     var conf;
@@ -362,6 +372,7 @@ function r1comp(arr, ipt)
         }
     }
 }
+//Função para gerar o mapa da sala 2
 function room2()
 {
     map = r2;
@@ -369,6 +380,7 @@ function room2()
     posy = 3;
     map[posy][posx] = player;
 }
+//Função para executar comandos expecíficos da sala 2
 function r2comp(arr, narr, ipt, x, y)
 {
     var conf = true;
@@ -408,6 +420,7 @@ function r2comp(arr, narr, ipt, x, y)
         }
     }
 }
+//Funções do chefe final do jogo (redução/verificação de vida, movimentação e dano)
 function boss(pdmg, arr, ipt, tarr)
 {
     var x = tarr[2];
@@ -503,6 +516,7 @@ function bossdmg (x, y, arr)
         arr[y+1][x] = ballsprite;
     }
 }
+//Função das bolas de energia que o chefe lança
 function ball (arr, tarr, sprite, n)
 {
     if(tarr[n][1] == posx && tarr[n][0] == posy && tarr.length > 0)
@@ -521,6 +535,7 @@ function ball (arr, tarr, sprite, n)
         return false;
     }
 }
+//Funções do cavaleiro(corpo-a-corpo) (redução/verificação de vida, movimentação e dano)
 function crenmy (pdmg, arr, plr, tarr, n)
 {
     var x = tarr[n][2];
@@ -607,6 +622,7 @@ function crenmydmg (arr, tarr, n, plr)
     }
     return false;
 }
+//Funções do arqueiro(longa distância) (redução/verificação de vida, movimentação e dano)
 function lrenmy (pdmg, arr, plr, tarr, n)
 {
     var x = tarr[n][2];
@@ -689,6 +705,7 @@ function lrenmydmg (arr, tarr, n, plr)
     }
     return false;
 }
+//Função para selecionar o instrumento a ser utilizado
 function chweapon (n)
 {
     if(n == 1)
@@ -705,6 +722,7 @@ function chweapon (n)
     }
     return false;
 }
+//Função para inserir os inimigos no mapa de base
 function enmyset (arr, cr, lr)
 {
     for(i=0;i<crarr.length;i++)
@@ -716,6 +734,7 @@ function enmyset (arr, cr, lr)
         arr[lrarr[j][1]][lrarr[j][2]] = lr;
     }
 }
+//Função para remover os inimigos, quando mortos
 function enmyev (arr,ipt)
 {
     var aux;
@@ -788,7 +807,9 @@ function enmyev (arr,ipt)
         }
     }
 }
+//Declarando variáveis
 var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2, df, health, dx, dy, crd, lrd, mark, cm, wb, ballsprite, hnarr;
+//Definindo parte das variáveis
 player = "◯";//◯😆೦
 wall = "⬛";//█⬛
 crsprite = "⬤";//⭕೧⬤〠
@@ -807,8 +828,10 @@ mark = "⊚ ";//🞋
 ballsprite = "⊛";
 crd = 5;
 lrd = 10;
+//Iniciando o sistema do jogo
 do
 {
+//Menu principal:
     menu = parseInt(prompt("Zelda: The spin-off\n1-Jogar\n2-Créditos").trim());
     if(menu == 2)
     {
@@ -816,11 +839,13 @@ do
     }
     if(menu != 1 && menu != 2)
     {
-        alert("Opção inválida, tente novamente")
+        alert("Opção inválida, tente novamente.");
     }
 }while(menu != 1)
+//Iniciando o jogo
 do
 {
+//Definindo as variáveis restantes
     inventory = [];
     hr = 7;
     vr = 7;
@@ -882,17 +907,21 @@ r2=
     [wall,ept,ept,ept,ept,ept," ④",wall],
     [wall,ept,ept,ept,ept,ept," ⑤",wall],
     [wall,wall,wall,wall,wall,wall,wall,wall]];
+//Executando funções iniciais
     basemap(9,3);
     enmyset(map, crsprite, lrsprite);
     alert("Você acorda em um local estranho, com uma espada e um arco de madeira ao seu dispôr.");
     alert("Não sabe o que está acontecendo, mas o que você sabe é: você precisa sair desse lugar.");
+//Iniciando parte "jogável"
     while(health > 0 && input != "x")
     {
-        plrdmg(crd, lrd, map)
+//Posicionando o Jogador
+        plrdmg(crd, lrd, map);
         map[posy][posx] = player;
         posy = movv(map,input,posx,posy);
         posx = movh(map,input,posx,posy);
         dmgdot(posx,posy,map,dpath,distance);
+//Verificando ações nos mapas
         if(map == bmap && (map[1][8] == player || map[1][9] == player || map[1][10] == player) && input == "f")
         {
             if(inventory.indexOf("-⚿ Chave para sala final") != -1)
@@ -988,22 +1017,29 @@ r2=
             }
             r2comp(map, hnarr, input, posx, posy);
         }
+//Recebendo o "input" do jogador
         input = prompt(inventory.join("\n") + "\n" + refreshScr(map,vr,hr,posx,posy,cm)+"\nVida: "+health+"%\nDigite \"cmd\" para uma lista de comandos").trim().toLowerCase();
+//Mostrando os comandos
         if(input == "cmd")
         {
             alert("w-Cima\ns-Baixo\na-Esquerda\nd-Direita\n1-Mão vazia\n2-Espada\n3-Arco\nc(Com espada ou arco composto)-Atacar/Atirar\ncw/cs/ca/cd(Com o arco)-Atirar(cima, baixo, esquerda, direita)\nf-Interagir/Pegar itens/Usar itens\nx-Sair");
         }
+//Recebendo input de troca de instrumento
         if(parseInt(input) >= 1 && parseInt(input) <= 3 && wb == "basic")
         {
             sw = parseInt(input);
         }
+//Mais uma verificação de ação
         if(map == bmap || map == rf)
         {
             enmyev(map,input);
         }
+//Executando função para troca de instrumento
         wepret = chweapon(sw);
+//Contando o número de execuções
         movcount++;
     }
+//Definindo parâmetros para vitória e derrota e mostrando qual resultato foi atingido
     if(health <= 0)
     {
         alert("Você morreu, mas a aventura poderá começar novamente.");
@@ -1018,8 +1054,8 @@ r2=
     }
     else
     {
-        alert("Você finalmente sai do local onde estava, correndo.")
-        alert("Até que você acorda, denovo, só que dessa vez em seu quarto, e percebe que tudo havia sido um sonho.")
+        alert("Você finalmente sai do local onde estava, correndo.");
+        alert("Até que você acorda, denovo, só que dessa vez em seu quarto, e percebe que tudo havia sido um sonho.");
         pa = prompt("Deseja começar novamente?(\"s-Sim n-Não\")");
         if(pa != "s" && pa != "n")
         {
