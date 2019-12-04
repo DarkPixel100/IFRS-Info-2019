@@ -7,7 +7,7 @@ function refreshScr (arr, vres, hres, x, y, mob)
     }
     else
     {
-        str = "Vida do Jorge:" + barr[0]*0.5 + "%\n";
+        str = "Vida de Jorge:" + barr[0]*0.5 + "%\n";
     }
     for(rv=0;rv<vres;rv++)
     {
@@ -358,7 +358,7 @@ function r1comp(arr, ipt)
             map[9][0] = wall;
             posx = 1;
             posy = 9;
-            alert("A porta da sala começou a se fechar rapidamente, tive que correr para fora. Ao chegar na saída pude ler algo que estava escrito na parede \"Nas matas deste local se escondem os segredos, de norte a sul é a ordem dos mesmos\".");
+            alert("A porta da sala começou a se fechar rapidamente, você teve que correr para fora. Ao chegar na saída pôde ler algo que estava escrito na parede \"Nas matas deste local se escondem os segredos, de norte a sul é a ordem dos mesmos\".");
         }
     }
 }
@@ -384,7 +384,7 @@ function r2comp(arr, narr, ipt, x, y)
         map[15][12] = wall;
         posx = 11;
         posy = 15;
-        alert("Da mesma forma que a outra sala, a porta se fechou rapidamente, mas consegui escapar, essa chave parece encaixar na fechadura daquela porta gigante ao norte.");
+        alert("Da mesma forma que a outra sala, a porta se fechou rapidamente, mas você conseguiu escapar, essa chave parece encaixar na fechadura daquela porta gigante ao norte.");
     }
     if(cnarr.length == 4)
     {
@@ -393,7 +393,7 @@ function r2comp(arr, narr, ipt, x, y)
             if(cnarr[i] != narr[i])
             {
                 conf = false;
-                alert("Ouço um barulho, creio que sinaliza que a sequência está errada, terei que começar denovo.");
+                alert("Você ouve um barulho, ele sinaliza que a sequência está errada, você terá que começar novamente.");
                 cnarr.length = 0;
                 break;
             }
@@ -791,7 +791,19 @@ crd = 10;
 lrd = 15;
 do
 {
-    inventory = ["-⚿ Chave para sala final"];
+    menu = parseInt(prompt("Zelda: The spin-off\n1-Jogar\n2-Créditos").trim());
+    if(menu == 2)
+    {
+        alert("Roteirista: Diego Fontes de Avila\nLevel designer: Diego Fontes de Avila\nProgramador: Diego Fontes de Avila\nBeta tester: Diego Fontes de Avila");
+    }
+    if(menu != 1 && menu != 2)
+    {
+        alert("Opção inválida, tente novamente")
+    }
+}while(menu != 1)
+do
+{
+    inventory = [];
     hr = 7;
     vr = 7;
     map = [];
@@ -805,6 +817,7 @@ do
     movcount = 0;
     hnarr = [];
     cm = true;
+    distance = 0;
     for(i=0;i<4;i++)
     {
         hnarr.push(Math.ceil(Math.random()*5));
@@ -853,6 +866,8 @@ r2=
     [wall,wall,wall,wall,wall,wall,wall,wall]];
     basemap(9,3);
     enmyset(map, crsprite, lrsprite);
+    alert("Você acorda em um local estranho, com uma espada e um arco de madeira ao seu dispôr.");
+    alert("Não sabe o que está acontecendo, mas o que você sabe é: você precisa sair desse lugar.");
     while(health > 0 && input != "x")
     {
         plrdmg(crd, lrd, map)
@@ -879,7 +894,7 @@ r2=
             }
             else
             {
-                alert("É uma porta enorme, preciso se alguma chave para abrí-la e sair daqui.");
+                alert("Você vai até a porta enorme, é necessária alguma chave para abrí-la para sair deste local.");
             }
         }
         if(map == bmap && map[9][1] == player && map[9][0] == door && input == "f")
@@ -897,12 +912,12 @@ r2=
             if(d2)
             {
                 input = "";
-                alert("A porta abriu, consigo ler coisas escritas na parede \"Se os segredos escondidos foram encontrados, este é o local em que serão utilizados\"");
+                alert("A porta abriu, você consegue ler coisas escritas na parede \"Se os segredos escondidos foram encontrados, este é o local em que serão utilizados\"");
                 room2();
             }
             else
             {
-                alert("A porta está trancada, devo procurar uma chave em outro lugar.");
+                alert("A porta está trancada, você deve procurar uma chave em outro lugar.");
             }
         }
         if(map == bmap && input == "f")
@@ -930,6 +945,10 @@ r2=
         }
         if(map == rf)
         {
+            if(map[1][5] == player && input == "f")
+            {
+                break;
+            }
             rfcomp(input);
         }
         if(map == r1)
@@ -951,12 +970,12 @@ r2=
             }
             r2comp(map, hnarr, input, posx, posy);
         }
-        input = prompt(inventory.join("\n") + "\n" + refreshScr(map,vr,hr,posx,posy,cm)+"\nVida: "+health+"%\nDigite\"cmd\" para uma lista de comandos").trim().toLowerCase();
+        input = prompt(inventory.join("\n") + "\n" + refreshScr(map,vr,hr,posx,posy,cm)+"\nVida: "+health+"%\nDigite \"cmd\" para uma lista de comandos").trim().toLowerCase();
         if(input == "cmd")
         {
-            alert("w-Cima\ns-Baixo\na-Esquerda\nd-Direita\n1-Mão vazia\n2-Espada\n3-Arco\nc(Com espada ou arco composto)-Atacar/Atirar\ncw/cs/ca/cd(Com o arco)-Atirar(cima, baixo, esquerda, direita)\nf-Interagir/Pegar itens/Usar itens");
+            alert("w-Cima\ns-Baixo\na-Esquerda\nd-Direita\n1-Mão vazia\n2-Espada\n3-Arco\nc(Com espada ou arco composto)-Atacar/Atirar\ncw/cs/ca/cd(Com o arco)-Atirar(cima, baixo, esquerda, direita)\nf-Interagir/Pegar itens/Usar itens\nx-Sair");
         }
-        if(parseInt(input) >= 1 && parseInt(input) <= 3)
+        if(parseInt(input) >= 1 && parseInt(input) <= 3 && wb == "basic")
         {
             sw = parseInt(input);
         }
@@ -978,5 +997,15 @@ r2=
                 alert("Resposta inválida, tente novamente");
             }
         }while(pa != "s" && pa != "n")
+    }
+    else
+    {
+        alert("Você finalmente sai do local onde estava, correndo.")
+        alert("Até que você acorda, denovo, só que dessa vez em seu quarto, e percebe que tudo havia sido um sonho.")
+        pa = prompt("Deseja começar novamente?(\"s-Sim n-Não\")");
+        if(pa != "s" && pa != "n")
+        {
+            alert("Resposta inválida, tente novamente");
+        }
     }
 }while(pa == "s")
