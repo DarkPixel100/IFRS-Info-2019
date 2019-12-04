@@ -1,6 +1,14 @@
 function refreshScr (arr, vres, hres, x, y, mob)
 {
-    var str = "";
+    var str;
+    if(arr != rf)
+    {
+        str = "";
+    }
+    else
+    {
+        str = "Vida do Jorge:" + barr[0]*0.5 + "%\n";
+    }
     for(rv=0;rv<vres;rv++)
     {
         if(rv == 0)
@@ -411,11 +419,22 @@ function boss(pdmg, arr, ipt, tarr)
             tarr[0] -= pdmg;
             if(tarr[n][0] <= 0)
             {
+                for(i=0;i<ballarr.length;i++)
+                {
+                    arr[ballarr[i][0]][ballarr[i][1]] = ept;
+                }
+                ballarr.length = 0;
                 return [x,y,false];
             }
         }
         return [x,y,true];
     }
+    for(j=0;j<ballarr.length;j++)
+    {
+        arr[ballarr[j][0]][ballarr[j][1]] = ept;
+    }
+    ballarr.length = 0;
+    return [x,y,false];
 }
 function bossmov(arr, tarr)
 {
@@ -474,6 +493,32 @@ function bossmov(arr, tarr)
                 tarr[8] = 4;
             }
         }
+    }
+}
+function bossdmg (x, y, arr)
+{
+    if(movcount%2 == 0 && ballarr.length < 4)
+    {
+        ballarr.push([y+1,x]);
+        arr[y+1][x] = ballsprite;
+    }
+}
+function ball (arr, tarr, sprite, n)
+{
+    if(tarr[n][1] == posx && tarr[n][0] == posy && tarr.length > 0)
+    {
+        health = 0;
+    }
+    if(tarr[n][0] < 6 && barr[0] > 0)
+    {
+        arr[tarr[n][0]][tarr[n][1]] = ept;
+        tarr[n][0]++;
+        arr[tarr[n][0]][tarr[n][1]] = sprite;
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 function crenmy (pdmg, arr, plr, tarr, n)
@@ -674,7 +719,7 @@ function enmyset (arr, cr, lr)
 function enmyev (arr,ipt)
 {
     var aux;
-    if(arr = bmap)
+    if(arr == bmap)
     {
         for(i=0;i<crarr.length;i++)
         {
@@ -698,23 +743,40 @@ function enmyev (arr,ipt)
     {
         aux = boss(damage,arr,ipt,barr);
         bossmov(arr,barr);
+        bossdmg(aux[0],aux[1], arr);
+        if(aux != undefined && aux[2] == false)
+        {
+            arr[aux[1]][aux[0]] = ept;
+            ballarr.length = 0;
+            for(k=0;k<arr.length;k++)
+            {
+                for(l=0;l<arr[k].length;l++)
+                {
+                    if(arr[k][l] == ballsprite)
+                    {
+                        arr[k][l] = ept;
+                    }
+                }
+            }
+        }
+        for(m=0;m<ballarr.length;m++)
+        {
+            aux = ball(arr,ballarr,ballsprite,m);
+            if(aux != undefined && aux == false)
+            {
+                arr[ballarr[m][0]][ballarr[m][1]] = ept;
+                ballarr.shift();
+            }
+        }
     }
 }
-var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2, df, health, dx, dy, crd, lrd, mark, cm, wb;
-hr = 7;
-vr = 7;
-map = [];
-crarr = [[40,3,1,3,5,3,1,3,4],[40,9,11,9,7,9,11,3,4],[40,17,9,13,9,17,9,3,4]];
-lrarr = [[25,7,1,"rg"],[25,10,7,"up"],[25,16,3,"up"]];
-barr = [200,1,5,1,8,1,1,3,4];
-inventory = ["-⚿ Chave para sala final"];
+var map, hr, vr, input, player, wall, enemy, posx, posy, ept, damage, crarr, lrarr, sw, dpath, distance, grass, wepret, door, bmap, r1, r2, movcount, bplacer, inventory, prize1, prize2, d2, df, health, dx, dy, crd, lrd, mark, cm, wb, ballsprite, hnarr;
 player = "◯";//◯😆೦
 wall = "⬛";//█⬛
 crsprite = "⬤";//⭕೧⬤〠
 lrsprite = "⭕";
 bsprite = "〠";
 ept = "   ";
-sw = 0;
 dpath = " · ";
 grass = "Δ ";
 door = "□";
@@ -724,19 +786,31 @@ aux = ept;
 prize1 = "⚿";
 prize2 = "⚿";
 mark = "⊚ ";//🞋
-wb = "basic";
-health = 100;
-var hnarr = [];
+ballsprite = "⊛";
 crd = 10;
 lrd = 15;
-cm = true;
-for(i=0;i<4;i++)
+do
 {
-    hnarr.push(Math.ceil(Math.random()*5));
-}
-var cnarr = [];
-movcount = 0;
-bmap = 
+    inventory = ["-⚿ Chave para sala final"];
+    hr = 7;
+    vr = 7;
+    map = [];
+    crarr = [[40,3,1,3,5,3,1,3,4],[40,9,11,9,7,9,11,3,4],[40,17,9,13,9,17,9,3,4]];
+    lrarr = [[25,7,1,"rg"],[25,10,7,"up"],[25,16,3,"up"]];
+    barr = [200,1,5,1,8,1,1,3,4];
+    ballarr = [];
+    sw = 0;
+    wb = "basic";
+    health = 100;
+    movcount = 0;
+    hnarr = [];
+    cm = true;
+    for(i=0;i<4;i++)
+    {
+        hnarr.push(Math.ceil(Math.random()*5));
+    }
+    var cnarr = [];
+    bmap = 
    [[wall,wall,wall,wall,wall,wall,wall,wall,door,door,door,wall,wall],
     [wall,grass,grass,grass,grass,grass,wall,grass,ept,ept,ept,grass,wall],
     [wall,grass,ept,ept,ept,ept,wall,grass,ept,ept,ept,grass,wall],
@@ -777,11 +851,8 @@ r2=
     [wall,ept,ept,ept,ept,ept," ④",wall],
     [wall,ept,ept,ept,ept,ept," ⑤",wall],
     [wall,wall,wall,wall,wall,wall,wall,wall]];
-
-basemap(9,3);
-enmyset(map, crsprite, lrsprite);
-do
-{
+    basemap(9,3);
+    enmyset(map, crsprite, lrsprite);
     while(health > 0 && input != "x")
     {
         plrdmg(crd, lrd, map)
@@ -851,6 +922,10 @@ do
             if(map[16][2] == player)
             {
                 alert(hnarr[3]);
+            }
+            if(map[16][7] == player)
+            {
+                alert("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
             }
         }
         if(map == rf)
