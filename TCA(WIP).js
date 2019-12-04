@@ -248,7 +248,7 @@ function plrdmg(cd, ld, arr)
             {
                 for(i=0;i<crarr.length;i++)
                 {
-                    if(crenmydmg(map, crarr, i, player))
+                    if(crarr[i][0] > 0 && crenmydmg(map, crarr, i, player))
                     {
                         health -= cd;
                         if(health <= 0)
@@ -262,7 +262,7 @@ function plrdmg(cd, ld, arr)
             {
                 for(j=0;j<lrarr.length;j++)
                 {
-                    if(lrenmydmg(arr, lrarr, j, player))
+                    if(lrarr[j][0] > 0 && lrenmydmg(arr, lrarr, j, player))
                     {
                         health -= ld;
                         if(health <= 0)
@@ -736,6 +736,24 @@ function enmyev (arr,ipt)
             if(aux != undefined && aux[2] == false)
             {
                 arr[aux[1]][aux[0]] = ept;
+                var x = aux[0];
+                var y = aux[1];
+                if(lrarr[j][3] == "up" && arr[y-3][x] == mark)
+                {
+                    arr[y-3][x] = ept;
+                }
+                if(lrarr[j][3] == "dn" && arr[y+3][x] == mark)
+                {
+                    arr[y+3][x] = ept;
+                }
+                if(lrarr[j][3] == "lf" && arr[y][x-3] == mark)
+                {
+                    arr[y][x-3] = ept;
+                }
+                if(lrarr[j][3] == "rg" && arr[y][x+3] == mark)
+                {
+                    arr[y][x+3] = ept;
+                }
             }
         }
     }
@@ -787,8 +805,8 @@ prize1 = "⚿";
 prize2 = "⚿";
 mark = "⊚ ";//🞋
 ballsprite = "⊛";
-crd = 10;
-lrd = 15;
+crd = 5;
+lrd = 10;
 do
 {
     menu = parseInt(prompt("Zelda: The spin-off\n1-Jogar\n2-Créditos").trim());
@@ -807,8 +825,8 @@ do
     hr = 7;
     vr = 7;
     map = [];
-    crarr = [[40,3,1,3,5,3,1,3,4],[40,9,11,9,7,9,11,3,4],[40,17,9,13,9,17,9,3,4]];
-    lrarr = [[25,7,1,"rg"],[25,10,7,"up"],[25,16,3,"up"]];
+    crarr = [[30,3,1,3,5,3,1,3,4],[30,9,11,9,7,9,11,3,4],[30,17,9,13,9,17,9,3,4]];
+    lrarr = [[15,7,1,"rg"],[15,10,7,"up"],[15,16,3,"up"]];
     barr = [200,1,5,1,8,1,1,3,4];
     ballarr = [];
     sw = 0;
