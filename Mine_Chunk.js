@@ -15,4 +15,4 @@ do
     }
     s += vet.join("\n");
 }while(confirm("Continuar?"))
-alert(s);
+console.log(s);
